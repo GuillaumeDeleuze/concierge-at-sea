@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
+  
+  devise_scope :user do
+    authenticated :user do
+      root 'pages#dashboard', as: :authenticated_root
+    end
+    
+    # unauthenticated do
+    #   root 'devise/sessions#new', as: :unauthenticated_root
+    # end
+  end
+  
+  root to: 'pages#home'
+
   get '/dashboard' => 'pages#dashboard'
   get '/profile' => 'pages#profile'
   get '/agenda' => 'pages#agenda'
@@ -9,16 +22,6 @@ Rails.application.routes.draw do
   get '/beverages/softdrink' => 'beverages#soft_drink_index'
   get '/beverages/alcohol' => 'beverages#alcohol_index'
   get '/beverages/alldaydining' => 'beverages#all_day_dining_index'
-  
-  devise_scope :user do
-    authenticated :user do
-      root 'pages#dashboard', as: :authenticated_root
-    end
-  
-    unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
-  end
   
  # Ajouter routes CRUDS lors de la création yatch_charter 
   resources :yatches, only: [:show, :index] do 
