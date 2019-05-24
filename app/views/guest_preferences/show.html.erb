@@ -1,0 +1,22 @@
+<h1><%= "#{@guest_preference.user.name} preferences" %></h1>
+<p><%= "shoe_size :#{@guest_preference.shoe_size}" %></p>
+<p><%= "height :#{@guest_preference.height}" %></p>
+<p><%= "weight :#{@guest_preference.weight}" %></p>
+<p><%= "character :#{@guest_preference.character}" %></p>
+<p><%= "specific request :#{@guest_preference.specific_request}" %></p>
+<p><%= "interest :#{@guest_preference.interest}" %></p>
+<p><%= "medical details :#{@guest_preference.medical_details}" %></p>
+<p><%= "food preferences :#{@guest_preference.food_preference}" %></p>
+<p><%= "beverages preferences :#{@guest_preference.beverage_preference}" %></p>
+<p><%= "alcohol preferences :#{@guest_preference.alcohol_preference}" %></p>
+<% if @guest_preference.flower == true %>
+    <p><%= "#{@guest_preference.user.name} want's flowers" %></p>
+<% end %>
+<% if @guest_preference.newspaper == false %>
+    <%= "#{@guest_preference.user.name} doesn't want newspaper" %>
+<% else %>
+    <p><%= "#{@guest_preference.user.name} want's newspapers" %></p>
+    <p><%= "newspaper type :#{@guest_preference.newspaper_type}" %></p>
+<% end %>
+
+

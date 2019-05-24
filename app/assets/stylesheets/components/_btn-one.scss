@@ -1,0 +1,21 @@
+.btn-one {
+    border-radius: 10px;
+    margin-top: 12px;
+    background-color: transparent;
+    border: none;
+    
+  .btn-one-text {
+    font-weight: 300;
+    text-align: center;
+    color: #455a64;
+    font-size: 30px;
+    letter-spacing: 0.03em;
+    line-height: 0.7;
+  
+    &:hover {
+      text-decoration: none;
+      opacity: 0.5;
+      font-weight: 400;
+      }
+    }
+  }

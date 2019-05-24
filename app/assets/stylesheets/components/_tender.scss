@@ -1,0 +1,40 @@
+.btn-tender {
+    font-weight: 300;
+    color: #455a64;
+    border: 2px solid #455a64;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-color:#EAEDED;
+    padding: 3px 10px;
+      &:hover {
+          text-decoration: none;
+          color: white;
+          opacity: 0.7;
+      }
+  }
+
+.tender-card {
+  width: 100%;
+  text-align: center;
+}
+
+.tender-text-box {
+border-top: 2px solid #DDD;
+border-bottom: 2px solid #DDD;
+margin-top: 20px;
+}
+
+.tender-text {
+  color: #455a64;
+  font-family: Heebo;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.tender-input {
+    border-top: 2px solid #DDD;
+    border-bottom: 2px solid #DDD;
+    background-color: white;
+    width: 100%;
+    padding: 15px;
+}

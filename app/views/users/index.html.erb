@@ -1,0 +1,5 @@
+<% @guest_users.each do |guest_user| %>
+    <%= guest_user.name %>
+    <%= link_to "Guest informations", guest_information_path(guest_user.guest_information) %>
+    <%= link_to "Guest preferences", guest_preference_path(guest_user.guest_preference) %>
+<% end %>

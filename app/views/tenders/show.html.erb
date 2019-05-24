@@ -1,0 +1,47 @@
+<div class="banner_wrapper_dashboard">
+  <div class="container-dashboard">
+    <div class="tender-card">
+        <% if @tender.accepted? %>
+            <p class="tender-text">
+                <%= "Your tender has been reserved for #{@tender.time.strftime('%m/%d at %I:%M%p')}" %>
+            </p>
+            <%= simple_form_for @tender do |f| %>
+                <%= f.hidden_field :called, :value => 'pending' %>
+                <%= f.input :time, discard_year: true , :minute_step => 5 %>
+                <%= f.button :submit, "EDIT", class: 'btn-tender' %>
+            <% end %>
+
+        <% elsif @tender.pending? %>
+        <div class="tender-input">
+            <p class="tender-text">
+                <%= "The crew members will check if it is possible to call the tender for #{@tender.time.strftime('%m/%d at %I:%M%p')}" %>
+            </p>
+        </div>
+            <h1 class="tender-text">Do you wish to modify your tender reservation?</p>
+            <%= simple_form_for @tender do |f| %>
+                <%= f.input :time, discard_year: true, :minute_step => 5, class: 'tender-time' %>
+                <%= f.button :submit, "UPDATE", class: 'btn-tender' %>
+        <% end %>
+        
+
+        <% else %>
+        <div class="tender-text-box">
+            <h1 class="tender-text">Call for a Tender now</h1>
+            <%= simple_form_for @tender do |f| %>
+                <%= f.hidden_field :called, :value => 'pending' %>
+                <%= f.hidden_field :time, as: :datetime, :value => DateTime.current %>
+                <%= f.button :submit, "CALL NOW", class: 'btn-tender' %>
+            <% end %> 
+        </div>  
+            <div class="tender-text-box">
+            <h1 class="tender-text">Order a Tender for</h1>
+            <%= simple_form_for @tender do |f| %>
+                <%= f.hidden_field :called, :value => 'pending' %>
+                <%= f.input :time, as: :datetime, min: Date.today, discard_year: true, :label => false, :minute_step => 5 %>
+                <%= f.button :submit, "CALL FOR LATER", class: 'btn-tender' %>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<h1><%= "#{@guest_information.user.name} informations" %></h1>
+<p><%= "birth date :#{@guest_information.birth_date}" %></p>
+<p><%= "passport number :#{@guest_information.passport_number}" %></p>
+<p><%= "nationality :#{@guest_information.nationality}" %></p>
+<p><%= "mobile number :#{@guest_information.mobile_number}" %></p>
+<p><%= "arrival date :#{@guest_information.arrival_date}" %></p>
+<p><%= "departure date :#{@guest_information.departure_date}" %></p>
+
+<% if @guest_information.collecting_at_airport == true %>
+    <p><%= "#{@guest_information.user.name} want to be collected at the airport, flight number : #{@guest_information.flight_number}" %></p>
+<% else %>
+    <p><%= "#{@guest_information.user.name} didn't tell us if we want to be picked at the airport" %></p>
+<% end %>
+
+<% if @guest_information.in_hotel == true %>
+    <p><%= "#{@guest_information.user.name} is in the hotel : #{@guest_information.hotel_name}" %></p>
+<% else %>
+    <p><%= "#{@guest_information.user.name} didn't tell us if he is in a hotel" %></p>
+<% end %>

@@ -10,10 +10,113 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_080205) do
+ActiveRecord::Schema.define(version: 2019_05_24_082015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "reserved"
+    t.datetime "start_at"
+    t.bigint "yatch_id"
+    t.integer "number_of_guest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["yatch_id"], name: "index_activities_on_yatch_id"
+  end
+
+  create_table "beverages", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "quantity", default: 0
+    t.integer "beverage_type", default: 0
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_beverages_on_booking_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "yatch_id"
+    t.date "start_at"
+    t.date "end_at"
+    t.integer "rating"
+    t.text "captain_message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["yatch_id"], name: "index_bookings_on_yatch_id"
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.bigint "menu_id"
+    t.string "name"
+    t.text "description"
+    t.integer "dish_type", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_dishes_on_menu_id"
+  end
+
+  create_table "guest_informations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.date "birth_date"
+    t.string "passport_number"
+    t.string "nationality", default: ""
+    t.string "mobile_number"
+    t.string "charter_yatch"
+    t.date "arrival_date"
+    t.date "departure_date"
+    t.integer "number_of_guests", default: 1
+    t.string "flight_number", default: ""
+    t.boolean "collecting_at_airport", default: false
+    t.boolean "in_hotel", default: false
+    t.string "hotel_name", default: ""
+    t.boolean "completed", default: false
+    t.boolean "visible", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_guest_informations_on_user_id"
+  end
+
+  create_table "guest_preferences", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "shoe_size"
+    t.integer "height"
+    t.integer "weight"
+    t.text "character"
+    t.text "specific_request"
+    t.text "interest"
+    t.text "medical_details"
+    t.text "food_preference"
+    t.text "beverage_preference"
+    t.text "alcohol_preference"
+    t.text "wine"
+    t.boolean "flower", default: false
+    t.boolean "newspaper", default: false
+    t.string "newspaper_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_guest_preferences_on_user_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_menus_on_booking_id"
+  end
+
+  create_table "tenders", force: :cascade do |t|
+    t.bigint "yatch_id"
+    t.datetime "time"
+    t.integer "called", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["yatch_id"], name: "index_tenders_on_yatch_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +126,34 @@ ActiveRecord::Schema.define(version: 2019_05_24_080205) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "crew", default: false
+    t.boolean "guest", default: false
+    t.integer "role"
+    t.string "name"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_users_on_booking_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "yatches", force: :cascade do |t|
+    t.string "yatch_name"
+    t.string "photo"
+    t.string "room"
+    t.string "localisation"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "activities", "yatches"
+  add_foreign_key "beverages", "bookings"
+  add_foreign_key "bookings", "yatches"
+  add_foreign_key "dishes", "menus"
+  add_foreign_key "guest_informations", "users"
+  add_foreign_key "guest_preferences", "users"
+  add_foreign_key "menus", "bookings"
+  add_foreign_key "tenders", "yatches"
+  add_foreign_key "users", "bookings"
 end

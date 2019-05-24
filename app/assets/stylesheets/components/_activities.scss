@@ -1,0 +1,75 @@
+.activities-text {
+  font-size: 27px;
+  letter-spacing: 0.07em;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.second-heading-activities {
+  font-weight: 300;
+  font-size: 25px;
+  padding: 15px;
+  text-align: center;
+  color: #455a64;
+}
+
+.activity-card {
+  background-color: #EAEDED;
+  border: 10px solid white;
+  width: 100%;
+  margin-bottom: -5px;
+
+  &:hover {
+    text-decoration: none;
+    background-color: #D5DBDB;
+  }
+}
+
+.activity-video-card {
+  width: 100%;
+  height: 40%;
+  background-color: #EAEDED;
+  border: 20px solid white;
+}
+
+.activity-show-card {
+  width: 100%;
+  background-color: #EAEDED;
+  border: 20px solid white;
+  margin-top: -18px;
+}
+
+.activities-para {
+  font-weight: 300;
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
+  color: #455a64;
+}
+
+.btn-activity {
+  font-weight: 300;
+  color: #455a64;
+  border: 2px solid #455a64;
+  border-radius: 6px;
+  padding: 0px 4px;
+  background-color:#EAEDED;
+  margin: -15px 125px 28px 125px;
+  &:hover {
+      text-decoration: none;
+      font-weight: 400;
+      opacity: 0.5;
+  }
+}
+
+label.start-activity {
+  padding: 0px 4px;
+}
+
+.activity-form {
+  width: 95%;
+  margin: auto;
+}

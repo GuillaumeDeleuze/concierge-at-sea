@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: white;
+}
+.banner_wrapper_login {
+    display: flex;
+    justify-content: center;
+}
+.container_login_text {
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.login-text {
+    font-size: 29px;
+    letter-spacing: 0.07em;
+    font-weight: 400;
+    line-height: 1.4;
+}
+img.caslogo-transparent {
+    width: 90%;
+    margin-top: 50px;
+}
+.form-inputs {
+    max-width: 40vw;
+    margin: auto;
+    padding-top: 40px;
+    font-family: Heebo;
+    line-height: 40%;
+}
+.forgot-pass-text {
+    color: #455a64;
+    font-family: Heebo;
+}
+.form-check-input {
+    margin-top: -0.1rem;
+    margin-left: -1.25rem;
+    margin-right: 0.5rem;
+}

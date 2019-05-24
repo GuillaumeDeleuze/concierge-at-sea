@@ -1,0 +1,32 @@
+<div class="banner_wrapper_dashboard">
+  <div class="container-dashboard">
+    <div class="drink-title-frame">
+      <h1 class="beverage-title">All-day-dining</h1>
+      <p>Click on any item to see more details about it</p>
+    </div>
+    <% @all_day_dinings.order("name asc").each do |all_day_dining| %>
+        <div class="beverages">
+        <h1 class="drink-title"><%= all_day_dining.name %></h1>
+            <div class="showhide" style="display:none">
+                <p class="drink-para"><%= all_day_dining.description %></p>
+            </div>
+        </div>
+        
+        <div>
+          <% if all_day_dining.quantity > 0 %>
+            <%= simple_form_for all_day_dining do |f| %>
+                <%= f.hidden_field :quantity, :value => "#{all_day_dining.quantity - 1}"  %>
+                <%= f.button :submit, "-", class: "btn-drink" %>
+            <% end %> 
+          <% end %>
+
+        <p><%= all_day_dining.quantity %></p>
+
+        <%= simple_form_for all_day_dining do |f| %>
+            <%= f.hidden_field :quantity, :value => "#{all_day_dining.quantity + 1}"  %>
+            <%= f.button :submit, "+", class: "btn-drink" %>
+        <% end %> 
+      </div>
+    <% end %>
+  </div>
+</div>

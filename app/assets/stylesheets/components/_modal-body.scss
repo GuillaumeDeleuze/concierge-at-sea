@@ -1,0 +1,22 @@
+.modal-body {
+    line-height: normal;
+    color:  #455a64;
+    text-align: center;
+    a {
+        font-size: 14px;
+      }
+  }
+  .form-control::placeholder {
+      opacity: 0.5;
+    }
+  .modal-content {
+    .modal-title {
+      font-weight: 500;
+      color:  #455a64;
+      line-height: normal;
+      font-size: 20px;
+    }
+    .close {
+      color:  #455a64;
+    }
+  }

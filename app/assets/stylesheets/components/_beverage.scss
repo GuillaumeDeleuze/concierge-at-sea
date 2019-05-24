@@ -1,0 +1,61 @@
+.beverage-title {
+    font-size: 30px;
+    letter-spacing: 0.07em;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.drink-title {
+    font-size: 24px;
+    letter-spacing: 0.07em;
+    font-weight: 300;
+    line-height: 1;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    &:hover {
+        text-decoration: none;
+        font-weight: 400;
+        opacity: 0.5;
+    }
+}
+
+.drink-para {
+    font-weight: 300;
+    font-size: 19px;
+    padding: 3px 30px;
+    text-align: center;
+    color: #455a64;
+}
+
+.btn-drink {
+    font-weight: 300;
+    color: #455a64;
+    border: 2px solid #455a64;
+    border-radius: 6px;
+    padding: 5px 11px;
+    background-color:#EAEDED;
+    &:hover {
+        text-decoration: none;
+        font-weight: 400;
+        opacity: 0.5;
+    }
+}
+
+.drink-form {
+    width: 37%;
+    height: 10%;
+    margin: auto;
+    column-count: 2;
+    column-gap: 10px;
+}
+
+.drink-title-frame {
+    width: 100%;
+    border-top: 2px solid #DDD;
+    border-bottom: 2px solid #DDD;
+}

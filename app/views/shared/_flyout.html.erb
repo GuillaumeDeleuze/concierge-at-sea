@@ -1,0 +1,52 @@
+<section class="flyout flyout-closed">
+  <header class="flyout-header">
+  <a class="flyout-close icon-link" href="#">
+    <%= image_tag("burger-menu.svg") %>
+  </a>
+  </header>
+    <div class="flyout-links">
+      <% if user_signed_in? %>
+        <h1 class="flyout-welcome-text">Welcome back to <%= current_user.booking.yatch.yatch_name %></h1>
+        <%= link_to "Agenda", agenda_path %>
+        <% if current_user.crew? %>
+          <%= link_to "Order's", order_path %>
+        <% end %>
+        <%= link_to "Map", map_path %>
+        <%= link_to "Tender", tender_path(current_user.booking.yatch.tender) %>
+        <%= link_to "Menu", booking_menus_path(current_user.booking) %>
+        <%= link_to "Activities", yatch_activities_path(current_user.booking.yatch)  %>
+        <h1 class="flyout-welcome-text">Beverages</h1>
+        <%= link_to "Hot Drinks", beverages_hotdrink_path %>
+        <%= link_to "Soft Drinks", beverages_softdrink_path %>
+        <%= link_to "Alcohol", beverages_alcohol_path %>
+        <%= link_to "All-day-dining", beverages_alldaydining_path %>
+
+        <% if current_user.guest? %>
+          <h1 class="flyout-welcome-text">My profile</h1>
+          <% if current_user.guest_information == nil %>
+            <%= link_to "My information", new_user_guest_information_path(current_user) %>
+          <% else %>
+            <%= link_to "Modify my information", edit_guest_information_path(current_user) %>
+          <% end %>
+          <% if current_user.guest_preference == nil %>
+            <%= link_to "My preferences", new_user_guest_preference_path(current_user) %> 
+          <% else %>
+            <%= link_to "Modify my preferences", edit_guest_preference_path(current_user) %>
+          <% end %>
+        <% else %>
+          <h1 class="flyout-welcome-text">Informations</h1>
+          <%= link_to "Guests informations", users_path %>
+        <% end %>
+        <%= link_to "My account", edit_user_registration_path %>
+        <%= link_to "LOG OUT",  destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= link_to "LOG IN", new_user_session_path  %>
+      <% end %>
+    </div>
+
+    <div class="flyout-bottom">
+      Made with ❤️
+    </div>
+
+    <div class="flyout-shadow flyout-close"></div>
+  </section>

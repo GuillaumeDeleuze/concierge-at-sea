@@ -1,0 +1,13 @@
+.btn-two {
+    font-weight: 300;
+    color: #455a64;
+    border: 2px solid #455a64;
+    border-radius: 6px;
+    margin: 10px;
+    background-color:#EAEDED;
+      &:hover {
+          text-decoration: none;
+          color: white;
+          opacity: 0.7;
+      }
+  }
