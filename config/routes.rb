@@ -6,13 +6,11 @@ Rails.application.routes.draw do
       root 'pages#dashboard', as: :authenticated_root
     end
     
-    # unauthenticated do
-    #   root 'devise/sessions#new', as: :unauthenticated_root
-    # end
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
   end
   
-  root to: 'pages#home'
-
   get '/dashboard' => 'pages#dashboard'
   get '/profile' => 'pages#profile'
   get '/agenda' => 'pages#agenda'
