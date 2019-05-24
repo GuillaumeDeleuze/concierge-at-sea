@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   get '/beverages/alcohol' => 'beverages#alcohol_index'
   get '/beverages/alldaydining' => 'beverages#all_day_dining_index'
   
-  authenticated :user do
-    root 'pages#dashboard'
-  end
-  
   devise_scope :user do
-    root to: "devise/sessions#new"
+    authenticated :user do
+      root 'pages#dashboard', as: :authenticated_root
+    end
+  
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
   end
   
  # Ajouter routes CRUDS lors de la création yatch_charter 

@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
   
+  def home
+  end
+  
   def dashboard
     @captain_message = current_user.booking.captain_message 
     @booking = current_user.booking
