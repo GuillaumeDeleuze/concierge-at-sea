@@ -1,77 +1,61 @@
-<div class="banner_wrapper_dashboard">
-  <div class="container-dashboard">
-    <div class="dashboard-notifications">
-      <h1 class="login-text-dashboard"><%= "Welcome aboard #{current_user.booking.yatch.yatch_name}" %></h1>
-    </div>
-      <%= image_tag("vive-guillaume.jpg", class:"container-dashboard-boat" )%> 
-  
-
-    <div class="wrapper">
-      <div class="dashboard-weather-wrapper">
-        <div class="dashboard-weather-card">
-          <i class="<%= @icon %> icons"></i>
-          <ul class="weather-list">
-            <li class="weather-list-items"><%= @currently[:summary] %></li>
-            <li class="weather-list-items"><%= @currently[:temperature] %> °C</li>
-            <li class="weather-list-items"><%= @currently[:precipProbability] %> % chance of rain</li>
-            <li class="weather-list-items"><%= @currently[:windSpeed] %> Meters per second</li>
-            <li class="weather-list-items">Nearest storm : <%= @currently[:nearestStormDistance] %> Kms away</li>
-            <li class="weather-list-items">Sunrise time : <%= DateTime.strptime("#{@daily[:sunriseTime]}",'%s').strftime("%H:%M") %></li>
-            <li class="weather-list-items">Sunset time : <%= DateTime.strptime("#{@daily[:sunsetTime]}",'%s').strftime("%H:%M") %></li>
-          </ul>
-        </div>
+<%= link_to agenda_path, :action => 'go' do %> <%#= Faire page meteo? %>
+  <div class="dashboard-weather-wrapper">
+    <div class="dashboard-weather-card">
+      <i class="<%= @icon %> icons"></i>
+      <div class="weather-list">
+        Meteo
       </div>
     </div>
-    
-    <div class="dash-notifications-input">
-      <% if (current_user.guest && current_user.guest_information == nil) %>
-          <%= link_to "Complete your Profile", new_user_guest_information_path(current_user), class: "second-heading-dashboard" %>
-      <% else %>
-          <h2 class="second-heading-dashboard">A personal welcome from your captain</h2>
-          <p class="para-dashboard"><%= @captain_message %></p>
-          <% if current_user.crew? %>
-            <%= link_to "Change message", edit_booking_path(@booking), class: "second-heading-dashboard" %>
-          <% end %>
-      <% end %>
-    </div> 
-
-    <div class="dashboard-notifications">
-      <h1 class="login-text-dashboard">Today's Agenda</h1>
-    </div>
-
-    <div class="dash-notifications-input">
-      <% @tenders.each do |tender| %>
-          <% if tender.time.to_date == DateTime.now.to_date %>
-              <p><%= "Tender called for #{tender.time.strftime('%I:%M%p')} (#{tender.called})" %></p>
-          <% end %>
-      <% end %>
-
-    <% @activities.order('start_at asc').each do |activity| %>
-        <% if activity.start_at.to_date == DateTime.now.to_date %>
-            <p><%= "#{activity.name.capitalize} at #{activity.start_at.strftime('%I:%M%p')} (#{activity.reserved})"%>
-        <% end %>
-    <% end %> 
-    </div> 
-
-
-    <% if current_user.crew? %>
-      <div class="dashboard-notifications">
-        <h1 class="login-text-dashboard">Guest's Requests</h1>
-      </div>
-      <div class="dash-notifications-input">
-        <% if @activities_pending > 0 %>
-          <p><%= "#{@activities_pending} activities to validate"%>
-          <%= link_to "Check it here", order_path %></p>
-        <% end %>
-        <% if @tenders_pending > 0 %>
-          <p><%= "Tender is waiting for validation" %>
-          <%= link_to "Check it here", order_path %></p>
-        <% end %>
-        <% if @beverages_pending > 0 %>
-          <p><%= "#{@beverages_pending} beverages waiting" %>
-          <%= link_to "Check it here", order_path %></p>
-        <% end %>
-      </div>  
-    <% end %>
   </div>
-</div>
+<% end %>
+
+<%= link_to agenda_path, :action => 'go' do %>
+  <div>Agenda</div>
+<% end %>
+
+<%= link_to map_path, :action => 'go' do %>
+  <div>Map</div>
+<% end %>
+
+<%= link_to tender_path(current_user.booking.yatch.tender), :action => 'go' do %>
+  <div>Call a Tender</div>
+<% end %>
+
+<%= link_to booking_menus_path(current_user.booking), :action => 'go' do %>
+  <div>Menu</div>
+<% end %>
+
+<%= link_to yatch_activities_path(current_user.booking.yatch), :action => 'go' do %>
+  <div>Activities</div>
+<% end %>
+
+<%= link_to booking_beverages_path(current_user.booking), :action => 'go' do %>
+  <div>Beverages</div>
+<% end %>
+
+<%= link_to beverages_alldaydining_path, :action => 'go' do %>
+  <div>All Day Dining</div>
+<% end %>
+
+<% if current_user.guest_information == nil %>
+  <%= link_to new_user_guest_information_path(current_user), :action => 'go' do %>
+  <div>My information</div>
+  <% end %>
+
+<% else %>
+  <%= link_to edit_guest_information_path(current_user), :action => 'go' do %>
+    <div>Modify my information</div>
+  <% end %>
+<% end %>
+
+<% if current_user.guest_preference == nil %>
+  <%= link_to new_user_guest_preference_path(current_user), :action => 'go' do %> 
+    <div>My preferences</div>
+  <% end %>
+
+<% else %>
+  <%= link_to edit_guest_preference_path(current_user), :action => 'go' do %>
+    <div>Modify my preferences</div>
+  <% end %>
+<% end %>
+
