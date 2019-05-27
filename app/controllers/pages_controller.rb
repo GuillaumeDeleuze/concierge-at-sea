@@ -40,13 +40,13 @@ class PagesController < ApplicationController
   
   def agenda
     @activities = Activity.where(yatch: current_user.booking.yatch).where.not(:reserved => 'not_reserved')
-    @beverages = Beverage.where(booking: current_user.booking).where("quantity > ?", 1)   
+    @beverages = Beverage.where(booking: current_user.booking).where("quantity > ?", 0)   
     @tenders = Tender.where(yatch: current_user.booking.yatch).where.not(:called => 'not_called')
   end
 
   def order
     @activities = Activity.where(yatch: current_user.booking.yatch).where(:reserved => 'pending')
-    @beverages = Beverage.where(booking: current_user.booking).where("quantity > ?", 1)   
+    @beverages = Beverage.where(booking: current_user.booking).where("quantity > ?", 0)   
     @tenders = Tender.where(yatch: current_user.booking.yatch).where(:called => 'pending')
   end
 

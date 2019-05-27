@@ -30,12 +30,10 @@
 
 
             <div>
-            <% if beverage.quantity != 0 %>
                 <%= simple_form_for beverage do |f| %>
                     <%= f.hidden_field :quantity, :value => "#{beverage.quantity - 1}"  %>
                     <%= f.button :submit, "-", class: "btn-drink" %>
                 <% end %> 
-            <% end %>
 
             <p class="agenda-text"><%= beverage.quantity %></p>
 
@@ -49,7 +47,6 @@
                     <%= f.button :submit, "DELETE", class: 'btn-tender' %>
                 <% end %>
             </div>
-
         <% end %>
     <% end %> 
 

@@ -26,7 +26,7 @@ class BeveragesController < ApplicationController
 
     def update
         @beverage.update(beverage_params)
-        redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: users_path)
         flash[:notice] = "Ordered"
     end
 

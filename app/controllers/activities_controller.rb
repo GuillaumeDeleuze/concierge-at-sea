@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
 
     def update
         @activity.update(activity_params)
-        redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: users_path)
         flash[:notice] = "Reserved"
     end
 

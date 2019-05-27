@@ -9,7 +9,7 @@ class TendersController < ApplicationController
 
     def update
         @tender.update(tender_params)
-        redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: users_path)
         flash[:notice] = "Reserved"
     end
 
