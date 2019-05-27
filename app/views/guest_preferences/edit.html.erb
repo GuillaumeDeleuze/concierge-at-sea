@@ -3,7 +3,7 @@
     <div class="preferences-form-top">
       <%= simple_form_for @guest_preference do |f| %>
           <%= f.hidden_field :user_id, value: current_user.id %> 
-          <%= f.input :shoe_size %> 
+          <%= f.input :shoe_size  %> 
           <%= f.input :height %> 
           <%= f.input :weight %> 
           <%= f.hidden_field :character %> 
@@ -13,9 +13,8 @@
           <%= f.hidden_field :food_preference %> 
           <%= f.hidden_field :beverage_preference %> 
           <%= f.hidden_field :alcohol_preference %> 
-          <%= f.input :flower %> 
-          <%= f.input :newspaper %> 
-          <%= f.input :newspaper_type  %>
+          <%= f.input :flower, label: "Flowers" %> 
+          <%= f.input :newspaper_type %>
           <button type="button" class="btn-two">
           <%= f.button :submit, "UPDATE" %>
           </button>

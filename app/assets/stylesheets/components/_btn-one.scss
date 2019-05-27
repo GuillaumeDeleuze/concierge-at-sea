@@ -3,6 +3,7 @@
     margin-top: 12px;
     background-color: transparent;
     border: none;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
     
   .btn-one-text {
     font-weight: 300;
@@ -11,11 +12,5 @@
     font-size: 30px;
     letter-spacing: 0.03em;
     line-height: 0.7;
-  
-    &:hover {
-      text-decoration: none;
-      opacity: 0.5;
-      font-weight: 400;
-      }
     }
   }

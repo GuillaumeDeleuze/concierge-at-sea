@@ -2,8 +2,7 @@
   <div class="container-dashboard">
     <div class="drink-title-frame">
       <h1 class="beverage-title">Soft Drinks</h1>
-      <p>Click on any item to see more details about it</p>
-
+      <h2 class="drink-sub">Click on an item for more details</h2>
     </div>
     <% @soft_drinks.order("name asc").each do |soft_drink| %>
         <div class="beverages">
@@ -13,13 +12,11 @@
             </div>
         </div>
 
-        <div>
-          <% if soft_drink.quantity > 0 %>
-            <%= simple_form_for soft_drink do |f| %>
-                <%= f.hidden_field :quantity, :value => "#{soft_drink.quantity - 1}"  %>
-                <%= f.button :submit, "-", class: "btn-drink" %>
-            <% end %> 
-          <% end %>
+        <div class="quantity-buttons">
+          <%= simple_form_for soft_drink do |f| %>
+              <%= f.hidden_field :quantity, :value => "#{soft_drink.quantity - 1}"  %>
+              <%= f.button :submit, "-", class: "btn-drink" %>
+          <% end %> 
 
         <p><%= soft_drink.quantity %></p>
 
@@ -27,7 +24,7 @@
             <%= f.hidden_field :quantity, :value => "#{soft_drink.quantity + 1}"  %>
             <%= f.button :submit, "+", class: "btn-drink" %>
         <% end %> 
-      </div>
+        </div>
     <% end %>
   </div>
 </div>
