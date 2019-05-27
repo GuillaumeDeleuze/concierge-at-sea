@@ -1,8 +1,8 @@
 <div class="banner_wrapper_dashboard">
   <div class="container-dashboard">
     <div class="drink-title-frame"> 
-        <h1 class="drink-title">Alcohol</h1>
-        <p>Click on any item to see more details about it</p>
+        <h1 class="beverage-title">Alcohol</h1>
+        <h2 class="drink-sub">Click on an item for more details</h2>
     </div>
     <% @alcohols.order("name asc").each do |alcohol| %>
         <div class="beverages">
@@ -12,21 +12,19 @@
             </div>
         </div>
 
-        <div>
-          <% if alcohol.quantity > 0 %>
-            <%= simple_form_for alcohol do |f| %>
-                <%= f.hidden_field :quantity, :value => "#{alcohol.quantity - 1}"  %>
-                <%= f.button :submit, "-", class: "btn-drink" %>
-            <% end %> 
-          <% end %>
-
+        <div class="quantity-buttons">
+          <%= simple_form_for alcohol do |f| %>
+              <%= f.hidden_field :quantity, :value => "#{alcohol.quantity - 1}"  %>
+              <%= f.button :submit, "-", class: "btn-drink" %>
+          <% end %> 
+         
         <p><%= alcohol.quantity %></p>
 
         <%= simple_form_for alcohol do |f| %>
             <%= f.hidden_field :quantity, :value => "#{alcohol.quantity + 1}"  %>
             <%= f.button :submit, "+", class: "btn-drink" %>
         <% end %> 
-      </div>
+        </div>
     <% end %>
   </div>
 </div>

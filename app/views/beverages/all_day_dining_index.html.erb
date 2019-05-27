@@ -2,7 +2,7 @@
   <div class="container-dashboard">
     <div class="drink-title-frame">
       <h1 class="beverage-title">All-day-dining</h1>
-      <p>Click on any item to see more details about it</p>
+      <h2 class="drink-sub">Click on an item for more details</h2>
     </div>
     <% @all_day_dinings.order("name asc").each do |all_day_dining| %>
         <div class="beverages">
@@ -12,13 +12,11 @@
             </div>
         </div>
         
-        <div>
-          <% if all_day_dining.quantity > 0 %>
-            <%= simple_form_for all_day_dining do |f| %>
-                <%= f.hidden_field :quantity, :value => "#{all_day_dining.quantity - 1}"  %>
-                <%= f.button :submit, "-", class: "btn-drink" %>
-            <% end %> 
-          <% end %>
+        <div class="quantity-buttons">
+          <%= simple_form_for all_day_dining do |f| %>
+              <%= f.hidden_field :quantity, :value => "#{all_day_dining.quantity - 1}"  %>
+              <%= f.button :submit, "-", class: "btn-drink" %>
+          <% end %> 
 
         <p><%= all_day_dining.quantity %></p>
 
@@ -26,7 +24,7 @@
             <%= f.hidden_field :quantity, :value => "#{all_day_dining.quantity + 1}"  %>
             <%= f.button :submit, "+", class: "btn-drink" %>
         <% end %> 
-      </div>
+        </div>
     <% end %>
   </div>
 </div>
