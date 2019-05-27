@@ -135,7 +135,7 @@ puts 'Creating 5 fake activities...'
   paddleboard = Activity.create!({
     yatch_id: 1,
     name: "Paddleboard",
-    description: "Take to the sea in a novel experience on a stand-up paddleboard. Tie in a gorgeous outing to capture the views with a spot of sport as this activity will be sure to tone your muscles and test your balance."
+    description: "Take to the sea in a novel experience on a stand-up paddleboard. Tie in a gorgeous outing to capture the views with a spot of sport as this activity will be sure to tone your muscles and test your balance.",
     photo: "../images/paddle.jpg"
   })
 puts 'Finished!'
