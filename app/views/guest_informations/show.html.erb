@@ -9,11 +9,11 @@
 <% if @guest_information.collecting_at_airport == true %>
     <p><%= "#{@guest_information.user.name} want to be collected at the airport, flight number : #{@guest_information.flight_number}" %></p>
 <% else %>
-    <p><%= "#{@guest_information.user.name} didn't tell us if we want to be picked at the airport" %></p>
+    <p><%= "#{@guest_information.user.name} did not tell us if they want to be picked at the airport" %></p>
 <% end %>
 
 <% if @guest_information.in_hotel == true %>
     <p><%= "#{@guest_information.user.name} is in the hotel : #{@guest_information.hotel_name}" %></p>
 <% else %>
-    <p><%= "#{@guest_information.user.name} didn't tell us if he is in a hotel" %></p>
+    <p><%= "#{@guest_information.user.name} did not tell us if he is staying in a hotel" %></p>
 <% end %>
