@@ -3,21 +3,21 @@
     <%= simple_form_for @guest_information do |f| %>
         <%= f.hidden_field :completed, :value => true %>
         <%= f.hidden_field :user_id, value: current_user.id %> 
-        <%= f.input :birth_date, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year - 10, discard_day: true,
-                              order: [:month, :year],
+        <%= f.input :birth_date, label: "Birthday", as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 10,
+                              order: [:day, :month, :year],
                               required: true %>
-        <%= f.input :passport_number, required: true %>
-        <%= f.input :nationality, required: true %>
-        <%= f.input :mobile_number, required: true %>
+        <%= f.input :passport_number, required: true, placeholder: "*********" %>
+        <%= f.input :nationality, required: true, placeholder: "British" %>
+        <%= f.input :mobile_number, required: true, placeholder: "(+44)7983 225161" %>
         <%= f.input :charter_yatch, input_html: { value: current_user.booking.yatch.yatch_name} %>
         <%= f.input :arrival_date, input_html: { value: current_user.booking.start_at } %>
         <%= f.input :departure_date, input_html: { value: current_user.booking.end_at } %>
         <%= f.input :number_of_guests, required: true %>
-        <%= f.input :collecting_at_airport %>
+        <%= f.input :collecting_at_airport, label: "Airport Collection?" %>
         <%= f.input :flight_number %>
-        <%= f.input :in_hotel %>
-        <%= f.input :hotel_name %>
+        <%= f.input :in_hotel, label: "Hotel stay?" %>
+        <%= f.input :hotel_name, placeholder: "The Hilton" %>
         <button type="button" class="btn-two">
         <%= f.button :submit, "UPDATE" %>
         </button>

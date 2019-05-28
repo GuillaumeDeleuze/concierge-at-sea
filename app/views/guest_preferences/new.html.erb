@@ -21,31 +21,35 @@
       <% end %>
     </div>
 
-    <h1 class="preferences-text">Character</h1>
-    <% characters = ["Active", "Relaxed","Party", "Romantic", "Family", "Sporty"] %>
-      <% characters.each do |character| %>
-        <div class="character">
-          <ul class="preference-list">
-            <li> <input type="checkbox" class="checkbox"><%= " #{character.capitalize}" %> </li> 
-          </ul>
-        </div>
-      <% end %>
-      
-    <h1 class="preferences-text">Interests</h1>
-    <div class="interests-list">
-      <% interests = [ "sailing", "swimming", "shopping", "sun bathing", "scuba diving", "island tours", "snorkeling", "windsurfing", "fishing", "casino", "beach walk", "exercise", "parasailing", "dining ashore", "water skiing", "wave running", "music dancing"] %>
-        <% interests.each do |interest| %>
-          <div class="interest">
+    <div class="container-column-preferences">
+      <div class="preferences-item">
+      <h1 class="preferences-text">Character</h1>
+      <% characters = ["Active", "Relaxed","Party", "Romantic", "Family", "Sporty"] %>
+        <% characters.each do |character| %>
+          <div class="character">
             <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{interest.capitalize}" %> </li> 
+              <li> <input type="checkbox" class="checkbox"><%= " #{character.capitalize}" %> </li> 
             </ul>
           </div>
         <% end %>
+      </div>
+    
+    <div class="preferences-item">
+      <h1 class="preferences-text">Interests</h1>
+      <div class="interests-list">
+        <% interests = [ "sailing", "swimming", "shopping", "sun bathing", "scuba diving", "island tours", "snorkeling", "windsurfing", "fishing", "casino", "beach walk", "exercise", "parasailing", "dining ashore", "water skiing", "wave running", "music dancing"] %>
+          <% interests.each do |interest| %>
+            <div class="interest">
+              <ul class="preference-list">
+                <li> <input type="checkbox" class="checkbox"><%= " #{interest.capitalize}" %> </li> 
+              </ul>
+            </div>
+          <% end %>
+      </div>
     </div>
         
-    <h1 class="preferences-text">Food Preferences</h1>
-
-    <div class="pref-column">
+    <div class="preferences-item">
+      <h1 class="preferences-text">Food Preferences</h1>
       <h2 class="second-heading">Eggs</h2>
       <div class="pref-column-list">
         <% eggs = ["SOFT BOILED", "HARD BOILED", "SCRAMBLED", "FRIED", "POACHED", "OMELETTE"] %>
@@ -56,18 +60,20 @@
               </ul>
             </div>
         <% end %> 
-      </div> 
+      </div>
+    </div>
 
-      <h2 class="second-heading">DAIRY-FREE</h2>
-      <div class="pref-column-list">
-        <% dairys_free = ["ALMOND", "SOYA", "RICE", "COCONUT", "LACTOSE-FREE", "HAZELNUT"] %>
-        <% dairys_free.each do |dairy_free| %>
-            <div class="food_preference">
-              <ul class="preference-list">
-                <li> <input type="checkbox" class="checkbox"><%= " #{dairy_free.capitalize} milk" %> </li> 
-              </ul>
-            </div>
-        <% end %>
+      <div class="preferences-item">
+        <h2 class="second-heading">DAIRY-FREE</h2>
+        <div class="pref-column-list">
+          <% dairys_free = ["ALMOND", "SOYA", "RICE", "COCONUT", "LACTOSE-FREE", "HAZELNUT"] %>
+          <% dairys_free.each do |dairy_free| %>
+              <div class="food_preference">
+                <ul class="preference-list">
+                  <li> <input type="checkbox" class="checkbox"><%= " #{dairy_free.capitalize} milk" %> </li> 
+                </ul>
+              </div>
+          <% end %>
       </div> 
     </div> 
 
