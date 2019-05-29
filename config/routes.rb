@@ -31,11 +31,16 @@ Rails.application.routes.draw do
   resources :bookings, only: [:show, :edit, :update, :destroy] do
     resources :beverages, only: [:index]
     resources :menus, only: [:index]
+    resources :chatrooms, only: [:index, :new, :create]
   end
 
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resources :guest_informations, only: [:new, :create]
     resources :guest_preferences, only: [:new, :create]
+  end
+  
+  resources :chatrooms, only: [:show] do 
+    resources :messages, only: [:index, :create]
   end
   
   resources :guest_informations, only: [:show, :edit, :update]

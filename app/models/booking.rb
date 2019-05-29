@@ -3,4 +3,5 @@ class Booking < ApplicationRecord
   has_many :user
   has_many :beverages
   has_many :menus
+  has_many :chatrooms
 end
