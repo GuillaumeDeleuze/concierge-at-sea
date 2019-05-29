@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_185202) do
+ActiveRecord::Schema.define(version: 2019_05_29_115928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2019_05_27_185202) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["yatch_id"], name: "index_bookings_on_yatch_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_chatrooms_on_booking_id"
   end
 
   create_table "dishes", force: :cascade do |t|
@@ -110,6 +118,16 @@ ActiveRecord::Schema.define(version: 2019_05_27_185202) do
     t.index ["booking_id"], name: "index_menus_on_booking_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "chatroom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "tenders", force: :cascade do |t|
     t.bigint "yatch_id"
     t.datetime "time"
@@ -151,10 +169,13 @@ ActiveRecord::Schema.define(version: 2019_05_27_185202) do
   add_foreign_key "activities", "yatches"
   add_foreign_key "beverages", "bookings"
   add_foreign_key "bookings", "yatches"
+  add_foreign_key "chatrooms", "bookings"
   add_foreign_key "dishes", "menus"
   add_foreign_key "guest_informations", "users"
   add_foreign_key "guest_preferences", "users"
   add_foreign_key "menus", "bookings"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "tenders", "yatches"
   add_foreign_key "users", "bookings"
 end
