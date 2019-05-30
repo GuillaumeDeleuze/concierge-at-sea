@@ -1,7 +1,6 @@
-<% if user_signed_in? %>
-  <div class="dash-card"> Welcome back to <%= current_user.booking.yatch.yatch_name %></div>
-<% end %>
-  <div class="weather-card">
+
+   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     <i class="<%= @icon %> weather-icon"></i>
     <div class="weather-heading">
       Today's Weather
@@ -10,10 +9,11 @@
       <li class="weather-list"><%= @currently[:temperature] %> °C</li>
       <li class="weather-list"><%= @currently[:precipProbability] %> % chance of rain</li>
       <li class="weather-list">Nearest storm : <%= @currently[:nearestStormDistance] %> Kms away</li>
-      <li class="weather-list">Sunrise : <%= DateTime.strptime("#{@daily[:sunriseTime]}",'%s').strftime("%H:%M") %></li>
-      <li class="weather-list">Sunset : <%= DateTime.strptime("#{@daily[:sunsetTime]}",'%s').strftime("%H:%M") %></li>
+      <li class="weather-list">Sunrise : <%= DateTime.strptime("#{@daily[:sunriseTime]}",'%s').strftime("%H:%M") %> - 
+      <%= DateTime.strptime("#{@daily[:sunsetTime]}",'%s').strftime("%H:%M") %></li>
     </ul>
     </div>
+  </div>
   </div>
 
 <% if current_user.crew? %>
@@ -29,58 +29,61 @@
 <% end %>
 
 <%= link_to chatroom_path(@chatroom.id), :action => 'go' do %>
-  <div class="dash-card">Chatroom</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/292426/pexels-photo-292426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+    Chatroom
+  </div>
 <% end %>
 
 <%= link_to agenda_path, :action => 'go' do %>
-  <div class="dash-card">Agenda</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/1020323/pexels-photo-1020323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+)">
+    Agenda
+  </div>
 <% end %>
 
 <%= link_to map_path, :action => 'go' do %>
-  <div class="dash-card">Map</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/697662/pexels-photo-697662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+    Map
+  </div>
 <% end %>
 
 <%= link_to tender_path(current_user.booking.yatch.tender), :action => 'go' do %>
-  <div class="dash-card">Call a Tender</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/2351439/pexels-photo-2351439.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+)">
+    Call a Tender
+  </div>
 <% end %>
 
 <%= link_to booking_menus_path(current_user.booking), :action => 'go' do %>
-  <div class="dash-card">Menu</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Menu
+  </div>
 <% end %>
 
 <%= link_to yatch_activities_path(current_user.booking.yatch), :action => 'go' do %>
-  <div class="dash-card">Activities</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/1430671/pexels-photo-1430671.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+    Activities
+  </div>
+<% end %>
+
+
+<%= link_to booking_beverages_path(current_user.booking), :action => 'go' do %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/2104558/pexels-photo-2104558.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+    Beverages
+  </div>
 <% end %>
 
 <%= link_to booking_beverages_path(current_user.booking), :action => 'go' do %>
-  <div class="dash-card">Beverages</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/346798/pexels-photo-346798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+    My profile
+  </div>
 <% end %>
-
-<% if current_user.guest? %>
-  <% if current_user.guest_information == nil %>
-    <%= link_to new_user_guest_information_path(current_user), :action => 'go' do %>
-    <div class="dash-card">My information</div>
-    <% end %>
-  <% else %>
-    <%= link_to edit_guest_information_path(current_user), :action => 'go' do %>
-      <div class="dash-card">Modify my information</div>
-    <% end %>
-  <% end %>
-
-  <% if current_user.guest_preference == nil %>
-    <%= link_to new_user_guest_preference_path(current_user), :action => 'go' do %> 
-      <div class="dash-card">My preferences</div>
-    <% end %>
-  <% else %>
-    <%= link_to edit_guest_preference_path(current_user), :action => 'go' do %>
-      <div class="dash-card">Modify my preferences</div>
-    <% end %>
-  <% end %>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to "LOG OUT",  destroy_user_session_path, method: :delete %>
-  <% else %>
-  <%= link_to "LOG IN", new_user_session_path  %>
-<% end %>
-
+  

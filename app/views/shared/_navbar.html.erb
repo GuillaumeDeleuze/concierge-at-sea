@@ -1,10 +1,5 @@
 <% if user_signed_in? %>
   <div class="navbar-cas navbar-expand-sm navbar-light navbar-lewagon">
-    <a href="#" class="flyout-open">
-      <svg width="42" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" fill="black"/>
-      </svg>
-    </a>
 
       <% chat = current_user.booking.chatrooms.where(:name => "General").first %>
       <%= simple_form_for [chat, Message.new(chatroom: chat)] do |f| %>
@@ -16,7 +11,7 @@
                                         class: 'chat-input'
                                       } %>
           <button name="button" type="submit" class="btn btn-flat">
-            <%= f.submit "Send Request", class:"fas fa-search" %>
+            <%= f.submit "Ask", class:"fas fa-search" %>
           </button>
         </div>
       <% end %>
