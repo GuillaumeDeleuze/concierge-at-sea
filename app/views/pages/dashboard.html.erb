@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<h1><%= link_to "CHATROOM", booking_chatrooms_path(current_user.booking) %></h1>
+<h1><%= link_to "CHATROOM", chatroom_path(@chatroom.id) %></h1>
 
 <%= link_to agenda_path, :action => 'go' do %>
   <div>Agenda</div>

@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     protected
   
     def load_entities
-      @chatroom = Chatroom.find params.dig(:message, :chatroom_id)
+      @chatroom = Chatroom.find params.dig(:chatroom_id)
     end
   end
   

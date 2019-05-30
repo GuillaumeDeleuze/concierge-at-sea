@@ -31,6 +31,14 @@ tender = Tender.new(
   )
   booking.save!
 
+  puts 'Creating 1 fake chatroom'
+  chatroom = Chatroom.new(
+    booking_id: 1,
+    name: "General"
+  )
+  chatroom.save!
+  puts 'Finished'
+  
   puts 'Creating 1 fake User'
 user = User.new(
   email: 'toto@toto.com',
