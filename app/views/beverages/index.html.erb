@@ -1,1 +1,17 @@
-<h1>All beverages</h1>
+<h1 class= "beverage-title">Beverages</h1>
+
+<%= link_to beverages_hotdrink_path, :action => 'go' do %>
+  <div class="dash-card">Hot Drinks</div>
+<% end %>
+
+<%= link_to beverages_softdrink_path, :action => 'go' do %>
+  <div class="dash-card">Soft Drinks</div>
+<% end %>
+
+<%= link_to beverages_alcohol_path, :action => 'go' do %>
+  <div class="dash-card">Alcoholic Beverages</div>
+<% end %>
+
+<%= link_to beverages_alldaydining_path, :action => 'go' do %>
+  <div class="dash-card">All Day Dining</div>
+<% end %>

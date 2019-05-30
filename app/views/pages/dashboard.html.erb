@@ -1,63 +1,86 @@
-<%= link_to agenda_path, :action => 'go' do %> <%#= Faire page meteo? %>
-  <div class="dashboard-weather-wrapper">
-    <div class="dashboard-weather-card">
-      <i class="<%= @icon %> icons"></i>
-      <div class="weather-list">
-        Meteo
-      </div>
+<% if user_signed_in? %>
+  <div class="dash-card"> Welcome back to <%= current_user.booking.yatch.yatch_name %></div>
+<% end %>
+  <div class="weather-card">
+    <i class="<%= @icon %> weather-icon"></i>
+    <div class="weather-heading">
+      Today's Weather
+    <ul class="weather-list">
+      <li class="weather-list"><%= @currently[:summary] %></li>
+      <li class="weather-list"><%= @currently[:temperature] %> °C</li>
+      <li class="weather-list"><%= @currently[:precipProbability] %> % chance of rain</li>
+      <li class="weather-list">Nearest storm : <%= @currently[:nearestStormDistance] %> Kms away</li>
+      <li class="weather-list">Sunrise : <%= DateTime.strptime("#{@daily[:sunriseTime]}",'%s').strftime("%H:%M") %></li>
+      <li class="weather-list">Sunset : <%= DateTime.strptime("#{@daily[:sunsetTime]}",'%s').strftime("%H:%M") %></li>
+    </ul>
     </div>
   </div>
+
+<% if current_user.crew? %>
+  <%= link_to order_path, :action => 'go' do %>
+    <div class="dash-card">Orders</div>
+  <% end %>
 <% end %>
 
-<h1><%= link_to "CHATROOM", chatroom_path(@chatroom.id) %></h1>
+<% if current_user.crew? %>
+  <%= link_to users_path, :action => 'go' do %>
+    <div class="dash-card">Guest Information</div>
+  <% end %>
+<% end %>
+
+<%= link_to chatroom_path(@chatroom.id), :action => 'go' do %>
+  <div class="dash-card">Chatroom</div>
+<% end %>
 
 <%= link_to agenda_path, :action => 'go' do %>
-  <div>Agenda</div>
+  <div class="dash-card">Agenda</div>
 <% end %>
 
 <%= link_to map_path, :action => 'go' do %>
-  <div>Map</div>
+  <div class="dash-card">Map</div>
 <% end %>
 
 <%= link_to tender_path(current_user.booking.yatch.tender), :action => 'go' do %>
-  <div>Call a Tender</div>
+  <div class="dash-card">Call a Tender</div>
 <% end %>
 
 <%= link_to booking_menus_path(current_user.booking), :action => 'go' do %>
-  <div>Menu</div>
+  <div class="dash-card">Menu</div>
 <% end %>
 
 <%= link_to yatch_activities_path(current_user.booking.yatch), :action => 'go' do %>
-  <div>Activities</div>
+  <div class="dash-card">Activities</div>
 <% end %>
 
 <%= link_to booking_beverages_path(current_user.booking), :action => 'go' do %>
-  <div>Beverages</div>
+  <div class="dash-card">Beverages</div>
 <% end %>
 
-<%= link_to beverages_alldaydining_path, :action => 'go' do %>
-  <div>All Day Dining</div>
+<% if current_user.guest? %>
+  <% if current_user.guest_information == nil %>
+    <%= link_to new_user_guest_information_path(current_user), :action => 'go' do %>
+    <div class="dash-card">My information</div>
+    <% end %>
+  <% else %>
+    <%= link_to edit_guest_information_path(current_user), :action => 'go' do %>
+      <div class="dash-card">Modify my information</div>
+    <% end %>
+  <% end %>
+
+  <% if current_user.guest_preference == nil %>
+    <%= link_to new_user_guest_preference_path(current_user), :action => 'go' do %> 
+      <div class="dash-card">My preferences</div>
+    <% end %>
+  <% else %>
+    <%= link_to edit_guest_preference_path(current_user), :action => 'go' do %>
+      <div class="dash-card">Modify my preferences</div>
+    <% end %>
+  <% end %>
 <% end %>
 
-<% if current_user.guest_information == nil %>
-  <%= link_to new_user_guest_information_path(current_user), :action => 'go' do %>
-  <div>My information</div>
-  <% end %>
-
-<% else %>
-  <%= link_to edit_guest_information_path(current_user), :action => 'go' do %>
-    <div>Modify my information</div>
-  <% end %>
-<% end %>
-
-<% if current_user.guest_preference == nil %>
-  <%= link_to new_user_guest_preference_path(current_user), :action => 'go' do %> 
-    <div>My preferences</div>
-  <% end %>
-
-<% else %>
-  <%= link_to edit_guest_preference_path(current_user), :action => 'go' do %>
-    <div>Modify my preferences</div>
-  <% end %>
+<% if user_signed_in? %>
+  <%= link_to "LOG OUT",  destroy_user_session_path, method: :delete %>
+  <% else %>
+  <%= link_to "LOG IN", new_user_session_path  %>
 <% end %>
 
