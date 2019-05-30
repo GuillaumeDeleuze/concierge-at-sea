@@ -28,7 +28,7 @@
   <% end %>
 <% end %>
 
-<%= link_to booking_chatrooms_path(current_user.booking), :action => 'go' do %>
+<%= link_to chatroom_path(@chatroom.id), :action => 'go' do %>
   <div class="dash-card">Chatroom</div>
 <% end %>
 
