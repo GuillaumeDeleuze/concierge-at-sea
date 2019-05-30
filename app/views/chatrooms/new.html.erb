@@ -1,9 +1,13 @@
-<h1>
-  Creating a room  
-</h1>
+<div class="chat-container">
+  <h1 class="new-chat-title">
+    Create your chatroom  
+  </h1>
 
-<%= simple_form_for [@booking, @chatroom] do |f| %>
-  <%= f.input :name %>
-  <%= f.hidden_field :booking_id, value: @booking.id %> 
-  <%= f.submit "Save", class: 'btn btn-success' %>
-<% end %>
+  <div class="chat-form">
+    <%= simple_form_for [@booking, @chatroom] do |f| %>
+      <%= f.input :name %>
+      <%= f.hidden_field :booking_id, value: @booking.id %> 
+      <%= f.submit "SUBMIT", class: 'btn-submitchat' %>
+    <% end %>
+  </div>
+</div>

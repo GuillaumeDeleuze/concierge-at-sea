@@ -1,3 +1,6 @@
+<% if user_signed_in? %>
+  <div class="dash-card"> Welcome back to <%= current_user.booking.yatch.yatch_name %></div>
+<% end %>
   <div class="weather-card">
     <i class="<%= @icon %> weather-icon"></i>
     <div class="weather-heading">
@@ -13,6 +16,17 @@
     </div>
   </div>
 
+<% if current_user.crew? %>
+  <%= link_to order_path, :action => 'go' do %>
+    <div class="dash-card">Orders</div>
+  <% end %>
+<% end %>
+
+<% if current_user.crew? %>
+  <%= link_to users_path, :action => 'go' do %>
+    <div class="dash-card">Guest Information</div>
+  <% end %>
+<% end %>
 
 <%= link_to booking_chatrooms_path(current_user.booking), :action => 'go' do %>
   <div class="dash-card">Chatroom</div>
@@ -42,41 +56,31 @@
   <div class="dash-card">Beverages</div>
 <% end %>
 
-<%= link_to beverages_hotdrink_path, :action => 'go' do %>
-  <div class="dash-card">Hot Drinks</div>
-<% end %>
-
-<%= link_to beverages_softdrink_path, :action => 'go' do %>
-  <div class="dash-card">Soft Drinks</div>
-<% end %>
-
-<%= link_to beverages_alcohol_path, :action => 'go' do %>
-  <div class="dash-card">Alcoholic Beverages</div>
-<% end %>
-
-<%= link_to beverages_alldaydining_path, :action => 'go' do %>
-  <div class="dash-card">All Day Dining</div>
-<% end %>
-
-<% if current_user.guest_information == nil %>
-  <%= link_to new_user_guest_information_path(current_user), :action => 'go' do %>
-  <div class="dash-card">My information</div>
+<% if current_user.guest? %>
+  <% if current_user.guest_information == nil %>
+    <%= link_to new_user_guest_information_path(current_user), :action => 'go' do %>
+    <div class="dash-card">My information</div>
+    <% end %>
+  <% else %>
+    <%= link_to edit_guest_information_path(current_user), :action => 'go' do %>
+      <div class="dash-card">Modify my information</div>
+    <% end %>
   <% end %>
 
-<% else %>
-  <%= link_to edit_guest_information_path(current_user), :action => 'go' do %>
-    <div class="dash-card">Modify my information</div>
+  <% if current_user.guest_preference == nil %>
+    <%= link_to new_user_guest_preference_path(current_user), :action => 'go' do %> 
+      <div class="dash-card">My preferences</div>
+    <% end %>
+  <% else %>
+    <%= link_to edit_guest_preference_path(current_user), :action => 'go' do %>
+      <div class="dash-card">Modify my preferences</div>
+    <% end %>
   <% end %>
 <% end %>
 
-<% if current_user.guest_preference == nil %>
-  <%= link_to new_user_guest_preference_path(current_user), :action => 'go' do %> 
-    <div class="dash-card">My preferences</div>
-  <% end %>
-
-<% else %>
-  <%= link_to edit_guest_preference_path(current_user), :action => 'go' do %>
-    <div class="dash-card">Modify my preferences</div>
-  <% end %>
+<% if user_signed_in? %>
+  <%= link_to "LOG OUT",  destroy_user_session_path, method: :delete %>
+  <% else %>
+  <%= link_to "LOG IN", new_user_session_path  %>
 <% end %>
 
