@@ -1,1 +1,49 @@
 <h1>My profile</h1>
+<% if current_user.guest? %>
+    <% if current_user.guest_information == nil %>
+        <%= link_to new_user_guest_information_path(current_user), :action => 'go' do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url(https://images.pexels.com/photos/1266017/pexels-photo-1266017.jpeg?cs=srgb&dl=adult-blur-business-trip-1266017.jpg&fm=jpg)">
+                My informations
+            </div>
+        <% end %>
+    <% else %>
+        <%= link_to edit_guest_information_path(current_user), :action => 'go' do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url(https://images.pexels.com/photos/1266017/pexels-photo-1266017.jpeg?cs=srgb&dl=adult-blur-business-trip-1266017.jpg&fm=jpg)">
+                My informations
+            </div>
+        <% end %>
+    <% end %>
+
+    <% if current_user.guest_preference == nil %>
+        <%= link_to new_user_guest_preference_path(current_user), :action => 'go' do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url(https://images.pexels.com/photos/271681/pexels-photo-271681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+                My preferences
+            </div>
+        <% end %>
+    <% else %>
+        <%= link_to edit_guest_preference_path(current_user), :action => 'go' do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url(https://images.pexels.com/photos/271681/pexels-photo-271681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+                My preferences
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
+
+<%= link_to edit_user_registration_path, :action => 'go' do %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  url(https://images.pexels.com/photos/346798/pexels-photo-346798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+    Edit my profil
+  </div>
+<% end %>
+
+
+<%= link_to destroy_user_session_path, method: :delete do %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  url(https://images.pexels.com/photos/2347556/pexels-photo-2347556.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+    Log Out
+  </div>
+<% end %>

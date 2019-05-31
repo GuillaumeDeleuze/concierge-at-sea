@@ -18,13 +18,17 @@
 
 <% if current_user.crew? %>
   <%= link_to order_path, :action => 'go' do %>
-    <div class="dash-card">Orders</div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url(https://images.pexels.com/photos/1226398/pexels-photo-1226398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+      Order's
+    </div>  
   <% end %>
-<% end %>
 
-<% if current_user.crew? %>
   <%= link_to users_path, :action => 'go' do %>
-    <div class="dash-card">Guest Information</div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url(https://images.pexels.com/photos/1266017/pexels-photo-1266017.jpeg?cs=srgb&dl=adult-blur-business-trip-1266017.jpg&fm=jpg)">
+      Guest Information
+    </div>  
   <% end %>
 <% end %>
 
@@ -53,9 +57,6 @@
 
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/2351439/pexels-photo-2351439.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-  <div>
-    <%= image_tag("boat-icon.svg") %>
-  </div>
     Call a Tender
   </div>
 <% end %>
