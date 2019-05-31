@@ -11,10 +11,11 @@ class PagesController < ApplicationController
     @beverages = Beverage.where(booking: current_user.booking).where("quantity > ?", 1)   
     @tenders = Tender.where(yatch: current_user.booking.yatch).where.not(:called => 'not_called')
     @activities_pending = Activity.where(yatch: current_user.booking.yatch).where(:reserved => 'pending').count
-    @beverages_pending = Beverage.where(booking: current_user.booking).where("quantity > ?", 1).count
+    @beverages_pending = Beverage.where(booking: current_user.booking).where("quantity > ?", 0).count
     @tenders_pending = Tender.where(yatch: current_user.booking.yatch).where(:called  => 'pending').count
     @chatroom = current_user.booking.chatrooms.where(:name => "General").first
- 
+    @total_orders = (@activities_pending + @beverages_pending + @tenders_pending)
+
 
 
     response = RestClient.get "https://api.darksky.net/forecast/#{ENV['WEATHER_API_KEY']}/42.3601,-71.0589"
