@@ -1,22 +1,20 @@
 <% if user_signed_in? %>
-  <div class="navbar-cas navbar-expand-sm navbar-light navbar-lewagon">
-
-      <% chat = current_user.booking.chatrooms.where(:name => "General").first %>
-      <%= simple_form_for [chat, Message.new(chatroom: chat)] do |f| %>
-        <div class="search-form-control form-group">
-          <%= f.input :content, as: :string,
-                                      wrapper: false,
-                                      label: false,
-                                      input_html: {
-                                        class: 'chat-input'
-                                      } %>
-          <button name="button" type="submit" class="btn btn-flat">
-            <%= f.submit "Ask", class:"fas fa-search" %>
-          </button>
-        </div>
-      <% end %>
-    
-
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to (image_tag("caslogo-transparent.png", class:'caslogo-navbar')), dashboard_path %>
+
+    <% chat = current_user.booking.chatrooms.where(:name => "General").first %>
+    <%= simple_form_for [chat, Message.new(chatroom: chat)] do |f| %>
+      <div class="search-form-control form-group">
+        <%= f.input :content, as: :string,
+                                    wrapper: false,
+                                    label: false,
+                                    input_html: {
+                                      class: 'chat-input'
+                                    } %>
+        <button name="button" type="submit" class="btn btn-flat">
+          <%= f.submit "Ask", class:"fas fa-search" %>
+        </button>
+      </div>
+    <% end %>
   </div>
 <% end %>

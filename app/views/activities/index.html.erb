@@ -1,16 +1,19 @@
 <div class="banner_wrapper_dashboard">
   <div class="container-dashboard">
     <h1 class="activities-text"><%= "#{current_user.booking.yatch.yatch_name}'s Activities" %></h1>
+
     <% @activities.each do |activity| %>
-    <div class="activity-card">
-      <img src="../../assets/images/paddle.jpg">
-      <div class="activity-card-infos">
-        <%= link_to activity_path(activity) do %>
-            <h1 class="second-heading-activities"><%= activity.name.capitalize %></h1>
-            <h2 class="description-activities"><%= activity.description.capitalize %></h2>
-        <% end %>
-      </div> 
-    </div>
+      <div class="card-trip">
+        <%= link_to image_tag("#{activity.photo}"), activity_path(activity), class: 'card-img'%>  
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= activity.name.capitalize %></h2>
+            <p><%= activity.description.capitalize %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
+    
   </div>
 </div>
+

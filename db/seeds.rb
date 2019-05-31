@@ -115,14 +115,14 @@ puts 'Creating 5 fake activities...'
     name: "Jet ski",
     description: "Hop aboard one of our jet skis to feel the wind rush through your hair at high speed.
     Bounce over waves, skate around in tight circles and let your freedom take you for a fun outing.",
-    photo: "../images/jetski.jpg"
+    photo: "jetski.jpg"
   })
   
   wakeboard = Activity.create!({
     yatch_id: 1,
     name: "Wakeboard",
     description: "Ride the wake produced by the towing boat, and attempt to do tricks through this sporty activity.",
-    photo: "../images/wakeboard.jpg"
+    photo: "wakeboard.jpg"
   })
   
   scubadiving = Activity.create!({
@@ -130,21 +130,21 @@ puts 'Creating 5 fake activities...'
     name: "Scuba diving",
     description: "One of the greatest ways to submerge yourself in the underwater life around your home onboard our
     boat during your stay. We provide all necessary equiptment to support your comfort and safety while diving.",
-    photo: "../images/scubadiving.jpg"
+    photo: "scubadiving.jpg"
   })
   
   yoga = Activity.create!({
     yatch_id: 1,
     name: "Yoga",
     description: "Choose between ashtanga, hatha, yin yoga and meditative classes at any hour of the day with us.",
-    photo: "../images/yoga.jpg"
+    photo: "yoga.jpg"
   })
   
   paddleboard = Activity.create!({
     yatch_id: 1,
     name: "Paddleboard",
     description: "Take to the sea in a novel experience on a stand-up paddleboard. Tie in a gorgeous outing to capture the views with a spot of sport as this activity will be sure to tone your muscles and test your balance.",
-    photo: "../images/paddle.jpg"
+    photo: "paddle.jpg"
   })
 puts 'Finished!'
 

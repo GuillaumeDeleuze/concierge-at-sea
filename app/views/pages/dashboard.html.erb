@@ -1,5 +1,5 @@
 
-   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     <i class="<%= @icon %> weather-icon"></i>
     <div class="weather-heading">
@@ -29,44 +29,46 @@
 <% end %>
 
 <%= link_to chatroom_path(@chatroom.id), :action => 'go' do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/292426/pexels-photo-292426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Chatroom
   </div>
 <% end %>
 
 <%= link_to agenda_path, :action => 'go' do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-  url(https://images.pexels.com/photos/1020323/pexels-photo-1020323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
-)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  url(https://images.pexels.com/photos/1020323/pexels-photo-1020323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Agenda
   </div>
 <% end %>
 
 <%= link_to map_path, :action => 'go' do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/697662/pexels-photo-697662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Map
   </div>
 <% end %>
 
 <%= link_to tender_path(current_user.booking.yatch.tender), :action => 'go' do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-  url(https://images.pexels.com/photos/2351439/pexels-photo-2351439.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
-)">
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  url(https://images.pexels.com/photos/2351439/pexels-photo-2351439.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+  <div>
+    <%= image_tag("boat-icon.svg") %>
+  </div>
     Call a Tender
   </div>
 <% end %>
 
 <%= link_to booking_menus_path(current_user.booking), :action => 'go' do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
     Menu
   </div>
 <% end %>
 
 <%= link_to yatch_activities_path(current_user.booking.yatch), :action => 'go' do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/1430671/pexels-photo-1430671.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Activities
   </div>
@@ -74,14 +76,22 @@
 
 
 <%= link_to booking_beverages_path(current_user.booking), :action => 'go' do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/2104558/pexels-photo-2104558.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Beverages
   </div>
 <% end %>
 
-<%= link_to booking_beverages_path(current_user.booking), :action => 'go' do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+
+<%= link_to beverages_alldaydining_path, :action => 'go' do %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  url(https://images.pexels.com/photos/1475/food-vegetables-italian-restaurant.jpg?cs=srgb&dl=aperitif-aperitivo-bar-1475.jpg&fm=jpg)">
+    All Day Dining
+  </div>
+<% end %>
+
+<%= link_to profile_path, :action => 'go' do %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/346798/pexels-photo-346798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     My profile
   </div>

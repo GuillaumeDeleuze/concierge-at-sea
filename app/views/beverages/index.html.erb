@@ -1,17 +1,22 @@
 <h1 class= "beverage-title">Beverages</h1>
 
 <%= link_to beverages_hotdrink_path, :action => 'go' do %>
-  <div class="dash-card">Hot Drinks</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/1251175/pexels-photo-1251175.jpeg?cs=srgb&dl=aroma-art-beverage-1251175.jpg&fm=jpg)">
+    Hot Drinks
+  </div>
 <% end %>
 
 <%= link_to beverages_softdrink_path, :action => 'go' do %>
-  <div class="dash-card">Soft Drinks</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?cs=srgb&dl=berries-beverage-blur-616840.jpg&fm=jpg)">
+    Soft Drinks
+  </div>
 <% end %>
 
 <%= link_to beverages_alcohol_path, :action => 'go' do %>
-  <div class="dash-card">Alcoholic Beverages</div>
-<% end %>
-
-<%= link_to beverages_alldaydining_path, :action => 'go' do %>
-  <div class="dash-card">All Day Dining</div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.pexels.com/photos/301692/pexels-photo-301692.jpeg?cs=srgb&dl=alcohol-background-bar-301692.jpg&fm=jpg)">
+    Alcoholic Beverages
+  </div>
 <% end %>
