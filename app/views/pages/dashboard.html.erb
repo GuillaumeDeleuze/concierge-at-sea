@@ -1,3 +1,16 @@
+<% if current_user.crew? && @total_orders > 0 %>
+  <%= link_to order_path, :action => 'go' do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url(https://images.pexels.com/photos/1226398/pexels-photo-1226398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+    <% if @total_orders == 1 %>
+      <%= "#{@total_orders} Order pending" %>
+    <% else %>
+      <%= "#{@total_orders} Order's pending" %>
+    <% end %> 
+    </div>  
+  <% end %>
+<% end %>
+
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
   <i class="<%= @icon %> weather-icon"></i>
@@ -14,23 +27,6 @@
   </div>
 </div>
 
-<% if current_user.crew? && @total_orders > 0 %>
-  <%= link_to order_path, :action => 'go' do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url(https://images.pexels.com/photos/1226398/pexels-photo-1226398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-      <%= "#{@total_orders} Order's pending" %>
-     
-    </div>  
-  <% end %>
-
-  <%= link_to users_path, :action => 'go' do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url(https://images.pexels.com/photos/1266017/pexels-photo-1266017.jpeg?cs=srgb&dl=adult-blur-business-trip-1266017.jpg&fm=jpg)">
-      Guest Information
-    </div>  
-  <% end %>
-<% end %>
-
 <%= link_to chatroom_path(@chatroom.id), :action => 'go' do %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/292426/pexels-photo-292426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
@@ -43,6 +39,15 @@
   url(https://images.pexels.com/photos/1020323/pexels-photo-1020323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Agenda
   </div>
+<% end %>
+
+<% if current_user.crew? %>
+  <%= link_to users_path, :action => 'go' do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url(https://images.pexels.com/photos/1266017/pexels-photo-1266017.jpeg?cs=srgb&dl=adult-blur-business-trip-1266017.jpg&fm=jpg)">
+      Guest Information
+    </div>  
+  <% end %>
 <% end %>
 
 <%= link_to map_path, :action => 'go' do %>
@@ -62,7 +67,7 @@
 
 <%= link_to booking_menus_path(current_user.booking), :action => 'go' do %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-  url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  url(https://images.pexels.com/photos/313700/pexels-photo-313700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Menu
   </div>
 <% end %>
