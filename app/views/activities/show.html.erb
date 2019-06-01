@@ -62,7 +62,7 @@
             </div>
 
         <% else %>
-            <h1 class="activities-text"><%=  "Reserve #{@activity.name.capitalize}" %></h1>
+            <h1 class="activities-text-show"><%=  "Reserve #{@activity.name.capitalize}" %></h1>
             <h1 class="activities-para"><%= @activity.description %></h1>
             <div class="activity-form">
               <%= simple_form_for @activity do |f| %>
