@@ -20,7 +20,7 @@
             </div>
                 <h1 class="tender-text">Do you wish to modify your tender reservation?</p>
                 <%= simple_form_for @tender do |f| %>
-                    <%= f.input :time, discard_year: true, :minute_step => 5, class: 'tender-time' %>
+                    <%= f.input :time, discard_year: true, class: 'tender-time', :minute_step => 5 %>
                     <%= f.button :submit, "UPDATE", class: 'btn-tender' %>
             <% end %>
             
