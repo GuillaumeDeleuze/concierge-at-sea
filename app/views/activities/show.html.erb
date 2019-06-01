@@ -1,7 +1,13 @@
+<html style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+    url(<%= asset_path("#{@activity.photo}")%>) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover ">
+
+
 <div class="banner_wrapper_dashboard">
   <div class="container-dashboard">
-    <div class="activity-video-card">This will have a photo of the activity 
-    </div>
     <div class="activity-show-card">
         <% if @activity.pending?%>
             <h1 class="activities-para">
