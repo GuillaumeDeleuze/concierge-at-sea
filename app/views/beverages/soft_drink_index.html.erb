@@ -19,7 +19,7 @@
               <%= f.button :submit, "-", class: "btn-drink" %>
           <% end %> 
 
-        <p><%= soft_drink.quantity %></p>
+        <p class="number-beverage"><%= soft_drink.quantity %></p>
 
         <%= simple_form_for soft_drink do |f| %>
             <%= f.hidden_field :quantity, :value => "#{soft_drink.quantity + 1}"  %>

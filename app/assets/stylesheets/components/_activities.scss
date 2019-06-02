@@ -16,19 +16,19 @@
   text-align: center;
   margin-top: 15px;
   width: 100%;
-  color: white;
+  color: #EAEDED;
 }
 
 .second-heading-activities {
   font-weight: 400;
   font-size: 22px;
-  color: white;
+  color: #EAEDED;
 }
 
 .description-activities {
   font-weight: 300;
   font-size: 15px;
-  color: white;
+  color:#EAEDED;
 }
 
 .activity-card {
@@ -57,22 +57,23 @@
   font-size: 20px;
   padding: 15px 10px;
   text-align: center;
-  color: white;
+  color: #EAEDED;
 }
 
 .btn-activity {
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 0px 1px;
-  background-color:white;
+  background-color:#EAEDED;
   margin: -15px 125px 28px 135px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
   input {
-    font-weight: 300;
+    font-weight: 400;
   }
 }
 
 label.start-activity {
   padding: 0px 4px;
+  color: #EAEDED;
 }
 
 .activity-form {
@@ -82,7 +83,7 @@ label.start-activity {
 
 .card-trip {
   overflow: hidden;
-  background: white;
+  background: #EAEDED;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
@@ -138,7 +139,7 @@ label.start-activity {
 
 .banner h1 {
   margin: 0;
-  color: white;
+  color: #EAEDED;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
@@ -146,7 +147,7 @@ label.start-activity {
 
 .banner p {
   font-size: 20px;
-  color: white;
+  color: #EAEDED;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }

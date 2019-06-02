@@ -1,6 +1,6 @@
 <html class="order">
 <div class="dashboard-notifications">
-  <h1 class="login-text-dashboard">Guest order's</h1>
+  <h1 class="login-text-dashboard">Guest Orders</h1>
 </div>
 
 <div class="agenda-input">
@@ -9,7 +9,7 @@
             <%= activity.name %>
         </h1>
         <p class="agenda-text">
-            <%= "#{activity.start_at.strftime('%m/%d at %I:%M%p')} for #{activity.number_of_guest} persons" %>
+            <%= "#{activity.start_at.strftime('%m/%d at %I:%M%p')} for #{activity.number_of_guest} guest(s)" %>
         </p>
 
         <%= simple_form_for activity do |f| %>

@@ -7,7 +7,7 @@
     <%= simple_form_for [@booking, @chatroom] do |f| %>
       <%= f.input :name %>
       <%= f.hidden_field :booking_id, value: @booking.id %> 
-      <%= f.submit "SUBMIT", class: 'btn-submitchat' %>
+      <%= f.submit "SUBMIT", class: 'btn-sendchat' %>
     <% end %>
   </div>
 </div>
