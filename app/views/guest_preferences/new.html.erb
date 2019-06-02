@@ -13,10 +13,10 @@
           <%= f.hidden_field :food_preference %> 
           <%= f.hidden_field :beverage_preference %> 
           <%= f.hidden_field :alcohol_preference %> 
-          <%= f.input :flower, label: "Flowers" %> 
+          <%= f.input :flower, label: "Flowers", label_html: { class: 'flowers-form' } %> 
           <%= f.input :newspaper_type, placeholder: "The Times"  %>
-          <button type="button" class="btn-two">
-          <%= f.button :submit, "SAVE" %>
+          <button type="button">
+            <%= f.button :submit, "SAVE" %>
           </button>
       <% end %>
     </div>

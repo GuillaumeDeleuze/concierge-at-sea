@@ -17,26 +17,76 @@ body {
     letter-spacing: 0.07em;
     font-weight: 400;
     line-height: 1.0;
-    color: white;
+    color: #EAEDED;
     margin-top: 8px;
 }
+
+.login-text-sub {
+    font-size: 22px;
+    letter-spacing: 0.07em;
+    font-weight: 400;
+    line-height: 1.0;
+    color: #EAEDED;
+    margin-top: 8px;
+}
+
 img.caslogo-transparent {
     width: 90%;
     margin-top: 20px;
 }
 .form-inputs {
-    max-width: 40vw;
+    max-width: 50vw;
     margin: auto;
-    padding-top: 40px;
+    padding-top: 115px;
+    padding-bottom: 5px;
     font-family: Heebo;
-    line-height: 40%;
+    line-height: 1%;
 }
 .forgot-pass-text {
-    color: #455a64;
+    color: #EAEDED;
     font-family: Heebo;
+    line-height: 1%;
 }
 .form-check-input {
     margin-top: -0.1rem;
     margin-left: -1.25rem;
     margin-right: 0.5rem;
 }
+
+.form-check-input.is-valid ~ .form-check-label {
+    color: #EAEDED;
+}
+
+.form-check-label {
+  color: #EAEDED;
+  margin-top: 15px;
+}
+
+.form-input-login {
+    font-size: 13px;
+    border-radius: 10px;
+    margin-top: 65px;
+}
+
+input.form-control {
+    padding: 5px;
+    font-size: 13px;
+    border-radius: 10px;
+    margin-bottom: -20px;
+}
+
+input.btn {
+    background-color: #EAEDED;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.03em;
+    line-height: 0.7;
+    font-family: Heebo;
+    font-size: 15px;
+  }
+
+    
