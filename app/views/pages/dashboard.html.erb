@@ -21,8 +21,8 @@
     <li class="weather-list"><%= @currently[:temperature] %> °C</li>
     <li class="weather-list"><%= @currently[:precipProbability] %> % chance of rain</li>
     <li class="weather-list">Nearest storm : <%= @currently[:nearestStormDistance] %> Kms away</li>
-    <li class="weather-list">Sunrise : <%= DateTime.strptime("#{@daily[:sunriseTime]}",'%s').strftime("%H:%M") %> - 
-    <%= DateTime.strptime("#{@daily[:sunsetTime]}",'%s').strftime("%H:%M") %></li>
+    <li class="weather-list">Sunrise : <%= DateTime.strptime("#{@daily[:sunriseTime]}",'%s').strftime("%H:%M") %></li>
+    <li class="weather-list">Sunset : <%= DateTime.strptime("#{@daily[:sunsetTime]}",'%s').strftime("%H:%M") %></li> 
   </ul>
   </div>
 </div>

@@ -33,12 +33,11 @@
   
   .chat-input {
     border-top: 0 none;
-    border-radius: 0 0 5px 5px;
+    border-radius: 6px;
   }
 
   .chat-message-container {
     padding: 5px;
-    // background-color:#EAEDED;
   
     .avatar {
       margin: 5px;
@@ -46,19 +45,21 @@
   
     .message-content-guest {
       padding: 5px;
-      // border: 1px solid $primary;
-      border-radius: 5px;
+      border-radius: 6px;
       background: lighten($primary, 10%);
       color: $white;
-      opacity: 0.8
+      opacity: 0.8;
+      background-color: #01426a;
+      box-shadow: 7px 6px 8px rgba(0, 0, 0, 0.4);
     }
 
     .message-content-crew {
       padding: 5px;
-      border-radius: 5px;
+      border-radius: 6px;
       background: orange;
       color: $white;
-      opacity: 0.8
+      opacity: 0.8;
+      box-shadow: 7px 6px 8px rgba(0, 0, 0, 0.4);
     }
   
     & + .chat-message-container {
@@ -134,4 +135,17 @@
   font-family: Heebo;
   margin-left: 60px;
   margin-bottom: 20px;
+}
+
+.btn-sendchat {
+  font-weight: 300;
+  color: white;
+  border-radius: 6px;
+  background-color: #01426a;
+  box-shadow: 7px 6px 8px rgba(0, 0, 0, 0.4);
+  width: 75px;
+  height: 33px;
+  padding: 3px;
+  border: none;
+  margin-left: 5px;
 }

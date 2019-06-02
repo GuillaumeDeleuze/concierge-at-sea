@@ -1,12 +1,12 @@
 <html class="agenda">
 <div class="dashboard-notifications">
-  <h1 class="login-text-dashboard">Your Agenda</h1>
+  <h1 class="login-text-agenda">Your Agenda</h1>
 </div>
 
-<div class="agenda-input">
-    <% @activities.each do |activity| %>
-        <h1 class="agenda-text"><%= activity.name %></h1>
-        <p class="agenda-text"><%= "#{activity.start_at.strftime('%m/%d at %I:%M%p')} for #{activity.number_of_guest} persons" %>
+<% @activities.each do |activity| %>
+  <div class="agenda-input">
+    <h1 class="agenda-text"><%= activity.name %></h1>
+    <p class="agenda-text"><%= "#{activity.start_at.strftime('%m/%d at %I:%M%p')} for #{activity.number_of_guest} persons" %>
 
     <div class="tender-agenda-buttons">
         <% if current_user.guest? %>
@@ -30,55 +30,55 @@
 </div>
     <% end %> 
 
-<div class="agenda-input">
-    <% if current_user.guest? %>
-        <% @beverages.each do |beverage| %>
-            <h1 class="agenda-text"><%= beverage.name %></h1>
+<% if current_user.guest? %>
+    <% @beverages.each do |beverage| %>
+      <div class="agenda-input">
+        <h1 class="agenda-text"><%= beverage.name %></h1>
 
-            <div class="quantity-buttons-agenda">
-                <%= simple_form_for beverage do |f| %>
-                    <%= f.hidden_field :quantity, :value => "#{beverage.quantity - 1}"  %>
-                    <%= f.button :submit, "-", class: "btn-drink" %>
-                <% end %> 
+        <div class="quantity-buttons-agenda">
+            <%= simple_form_for beverage do |f| %>
+                <%= f.hidden_field :quantity, :value => "#{beverage.quantity - 1}"  %>
+                <%= f.button :submit, "-", class: "btn-drink" %>
+            <% end %> 
 
-            <p class="agenda-text"><%= beverage.quantity %></p>
+        <p class="agenda-text"><%= beverage.quantity %></p>
 
-                <%= simple_form_for beverage do |f| %>
-                    <%= f.hidden_field :quantity, :value => "#{beverage.quantity + 1}"  %>
-                    <%= f.button :submit, "+", class: "btn-drink" %>
-                <% end %> 
+            <%= simple_form_for beverage do |f| %>
+                <%= f.hidden_field :quantity, :value => "#{beverage.quantity + 1}"  %>
+                <%= f.button :submit, "+", class: "btn-drink" %>
+            <% end %> 
 
-                <%= simple_form_for beverage do |f| %>
-                    <%= f.hidden_field :quantity, :value => 0 %>
-                    <button type="button" class="btn-agenda"><i class="fas fa-trash"></i>
-                        <%= f.button :submit, value: "" %>
-                    </button>
-                <% end %>
-            </div>
-        <% end %>
-    <% end %> 
+            <%= simple_form_for beverage do |f| %>
+                <%= f.hidden_field :quantity, :value => 0 %>
+                <button type="button" class="btn-agenda"><i class="fas fa-trash"></i>
+                    <%= f.button :submit, value: "" %>
+                </button>
+            <% end %>
+      </div>
+    <% end %>
+<% end %> 
 </div>
 
-<div class="agenda-input">
-    <% @tenders.each do |tender| %>
-        <p class="agenda-text"><%= "Tender called for #{tender.time.strftime('%m/%d at %I:%M%p')}" %></p>
+<% @tenders.each do |tender| %>
+  <div class="agenda-input">
+    <p class="agenda-text"><%= "Tender called for #{tender.time.strftime('%m/%d at %I:%M%p')}" %></p>
 
-        <div class="tender-agenda-buttons">
-            <% if current_user.guest? %>
-                <%= link_to "EDIT", tender_path(tender), class: 'btn-tender-agenda' %>
-                <%= simple_form_for tender do |f| %>
-                    <%= f.hidden_field :called, :value => 'not_called' %>
-                    <button type="button" class="btn-agenda"><i class="fas fa-trash"></i>
-                        <%= f.button :submit, value: "" %>
-                    </button>
-                <% end %>
-            
-            <% else %>
-                <%= simple_form_for tender do |f| %>
-                    <%= f.hidden_field :called, :value => 'not_called' %>
-                    <%= f.button :submit, "REFUSED", class: 'btn-tender-agenda' %>
-                <% end %>
+    <div class="tender-agenda-buttons">
+        <% if current_user.guest? %>
+            <%= link_to "EDIT", tender_path(tender), class: 'btn-tender-agenda' %>
+            <%= simple_form_for tender do |f| %>
+                <%= f.hidden_field :called, :value => 'not_called' %>
+                <button type="button" class="btn-agenda"><i class="fas fa-trash"></i>
+                    <%= f.button :submit, value: "" %>
+                </button>
             <% end %>
-        </div>
-    <% end %> 
+        
+        <% else %>
+            <%= simple_form_for tender do |f| %>
+                <%= f.hidden_field :called, :value => 'not_called' %>
+                <%= f.button :submit, "REFUSED", class: 'btn-tender-agenda' %>
+            <% end %>
+        <% end %>
+  </div>
+<% end %> 
 </div>
