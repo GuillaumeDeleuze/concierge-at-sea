@@ -1,6 +1,250 @@
-<div class="banner_wrapper_login">
+<div class="banner_wrapper_pref">
   <div class="container_preferences">
-    <div class="preferences-form-top">
+    <div class="container-list-pref">
+    <h1 class="preferences-text">Character</h1>
+      <div class="item-pref item-2">
+        <% characters = ["Active", "Relaxed","Party", "Romantic", "Family", "Sporty"] %>
+          <% characters.each do |character| %>
+            <ul class="preference-list">
+              <li> <input type="checkbox" class="checkbox"><%= " #{character.capitalize}" %> </li> 
+            </ul>
+          <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref"> 
+    <h1 class="preferences-text">Interests</h1>
+      <div class="item-pref item-3">
+        <% interests = [ "sailing", "swimming", "shopping", "sun bathing", "scuba diving", "island tours", "snorkeling", "windsurfing", "fishing", "casino", "beach walk", "exercise", "parasailing", "dining ashore", "water skiing", "wave running", "music dancing"] %>
+          <% interests.each do |interest| %>
+            <ul class="preference-list">
+              <li> <input type="checkbox" class="checkbox"><%= " #{interest.capitalize}" %> </li> 
+            </ul>
+          <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h1 class="preferences-text">Food Preferences</h1>
+    <h2 class="second-heading">Eggs</h2>     
+      <div class="item-pref item-4">
+        <% eggs = ["SOFT BOILED", "HARD BOILED", "SCRAMBLED", "FRIED", "POACHED", "OMELETTE"] %>
+          <% eggs.each do |egg| %>
+            <ul class="preference-list">
+              <li> <input type="checkbox" class="checkbox"><%= " #{egg.capitalize}" %> </li> 
+            </ul>
+        <% end %> 
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">DAIRY-FREE</h2>
+      <div class="item-pref item-5">
+        <% dairys_free = ["ALMOND", "SOYA", "RICE", "COCONUT", "LACTOSE-FREE", "HAZELNUT"] %>
+        <% dairys_free.each do |dairy_free| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{dairy_free.capitalize} milk" %> </li> 
+          </ul>
+        <% end %>
+      </div> 
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">BREAKFAST</h2>
+      <div class="item-pref item-6">
+        <% breakfast_foods = ["LIGHT", "CONTINENTAL", "COOKED BREAKFAST", "NOTHING", "Bacon", "Sausage", "Ham", "Potatoes",  "French Toast", "Pancakes", "Waffles", "Croissants", "English Muffins", "Muffins", "Jelly/Jam", "Spreads", "Whole Milk", "2% Milk"] %>
+        <% breakfast_foods.each do |breakfast_food| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{breakfast_food.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">MEAT</h2>
+      <div class="item-pref item-7">
+        <% meats = ["RARE", "MEDIUM-RARE", "WELL-DONE"] %>
+        <% meats.each do |meat| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{meat.capitalize}" %> </li> 
+          </ul>
+        <% end %> 
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">BREAD</h2>
+      <div class="item-pref item-8">
+        <% bread_types = [ "Rye", "White", "Brown" ] %>
+        <% bread_types.each do |bread_type| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{bread_type.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">LUNCH</h2>
+      <div class="item-pref item-9">
+        <% lunch_types = ["LIGHT", "SANDWICHES", "HOT", "COLD-MEATS", "SALADS", "SOUP", "EGGS"] %>
+        <% lunch_types.each do |lunch_type| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{lunch_type.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">HORS D'OEUVRES</h2>
+      <div class="item-pref item-10">
+        <% hors_doeuvres = ["CAVIAR", "PATÉ", "CRUDITÉS", "SUSHI", "NUTS", "CRISPS", "CHARCUTERIE"] %>
+        <% hors_doeuvres.each do |hors_doeuvre| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{hors_doeuvre.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">SNACKS</h2>
+      <div class="item-pref item-11">
+        <% snacks = ["CAKES", "BISCUITS", "MUFFINS", "BROWNIES", "SCONES", "BUNS", "PROTEIN BARS", "NUTS", "FRESH FRUIT", "DRIED FRUIT", "SEEDS", "POPCORN", "CRUDITÉS & DIPS", "YOGURTS"] %>
+        <% snacks.each do |snack| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{snack.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">CUISINE PREFERENCES</h2>
+      <div class="item-pref item-12">
+        <% cuisines = ["OPEN TO NEW FLAVOURS", "PREFERENCE FOR TRADITIONAL", "SPANISH", "ITALIAN",  "FRENCH", "MEDITERRANEAN", "MEXICAN", "THAI", "FUSION", "AMERICAN", "BRITISH", "INDIAN", "CHINESE"] %>
+        <% cuisines.each do |cuisine| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{cuisine.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">VEGETABLES</h2>
+      <div class="item-pref item-13">
+        <% vegetables = ["BROCCOLI", "MUSHROOMS", "CAULIFLOWER", "CARROTS", "COURGETTE", "PEAS", "POTATOES", "SPINACH", "TOMATOS", "CORN", "ONIONS", "COURGETTES"] %>
+        <% vegetables.each do |vegetable| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{vegetable.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">DESSERTS</h2>
+      <div class="item-pref item-14">
+          <% desserts = ["TARTS", "CAKES", "ICE CREAM", "FRUIT", "YOGURT", "CHOCOLATE", "MOUSSE", "CRUMBLE"] %>
+          <% desserts.each do |dessert| %>
+            <ul class="preference-list">
+              <li> <input type="checkbox" class="checkbox"><%= " #{dessert.capitalize}" %> </li> 
+            </ul>
+          <% end %> 
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">SOFT DRINKS</h2>
+      <div class="item-pref item-15">
+        <% soft_drinks = ["Coke", "Diet Coke", "Sprite", "Diet Sprite", "Pepsi", "Diet Pepsi", "Caffeine-free", "Ginger Ale", "Lemonade", "Orange Juice", "Grapefruit Juice", "Apple Juice", "Cranberry Juice", "Tomato Juice", "Club Soda", "Tonic Water", "Still water", "Sparkling water"] %>
+        <% soft_drinks.each do |soft_drink| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{soft_drink.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">HOT DRINKS</h2>
+      <div class="item-pref item-16">
+        <% hot_drinks = ["Regular coffee/tea", "Decaf coffee/tea", "Espresso", "Ice Tea/herbal tea", "Hot Chocolate"] %>
+        <% hot_drinks.each do |hot_drink| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{hot_drink.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+     <h2 class="second-heading">GIN</h2>
+      <div class="item-pref item-17">
+        <% gins = ["Bombay", "Tangueray", "Beefeater", "Sapphire", "Gordon"] %>
+        <% gins.each do |gin| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{gin.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">BEERS</h2>
+      <div class="item-pref item-18">
+        <% beers = ["Amstel", "Miller", "Heineken", "Miller lite", "Amstel lite", "Budweiser", "Corona", "Budweiser light", "Corona light", "Icehouse", "Guiness", "Coors light"] %>
+        <% beers.each do |beer| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{beer.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">WHISKEY</h2>
+      <div class="item-pref item-19">
+        <% whiskys = ["Johnny Walker", "Dewars", "J & B", "Glenlivet", "Glenfiddich", "Famous Grouse", "Blue Label", "Cutty Sark", "Jack Daniels", "Crown Royal", "Seagrams", "Canadian Club"] %>
+        <% whiskys.each do |whisky| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{whisky.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">RUM</h2>
+      <div class="item-pref item-20">
+        <% rhums = ["Bacardi", "Havana Club", "Malibu", "Mount Gay", "Myers"] %>
+        <% rhums.each do |rhum| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{rhum.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">ALCOHOLS</h2>
+      <div class="item-pref item-21">
+        <% other_alcohols = ["Limoncello", "Cognac", "Grappa", "Hierbas", "Brandy", "Port", "Amaretto", "Baileys", "Cointreau", "Drambuie", "Grand Marnier", "Galliano", "Kahlua", "Campari", "Sambucca", "Sherry", "Port", "Tia Maria"] %>
+        <% other_alcohols.each do |other_alcohol| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{other_alcohol.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">VODKA</h2>
+      <div class="item-pref item-22">
+        <% vodkas = ["Smirnoff", "Stoli", "Grey Goose", "Kettle One", "Absolut", "Belvedere", "Vox"] %>
+        <% vodkas.each do |vodka| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{vodka.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="container-list-pref">
+    <h2 class="second-heading">COCKTAILS</h2>
+      <div class="item-pref item-23">
+        <% cocktails = ["Pina Colada", "Martinis", "Bloody Mary", "Cosmo", "Margarita", "Rum Punch", "Daiquiri"] %>
+        <% cocktails.each do |cocktail| %>
+          <ul class="preference-list">
+            <li> <input type="checkbox" class="checkbox"><%= " #{cocktail.capitalize}" %> </li> 
+          </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="pref-form-top">
       <%= simple_form_for [@guest, @guest_preference] do |f| %>
           <%= f.hidden_field :user_id, value: current_user.id %> 
           <%= f.input :shoe_size, placeholder: "EUR 38" %> 
@@ -15,289 +259,10 @@
           <%= f.hidden_field :alcohol_preference %> 
           <%= f.input :flower, label: "Flowers" %> 
           <%= f.input :newspaper_type, placeholder: "The Times"  %>
-          <button type="button" class="btn-two">
+          <button type="button" class="btn-pref">
           <%= f.button :submit, "SAVE" %>
           </button>
       <% end %>
     </div>
-
-    <div class="container-column-preferences">
-      <div class="preferences-item">
-      <h1 class="preferences-text">Character</h1>
-      <% characters = ["Active", "Relaxed","Party", "Romantic", "Family", "Sporty"] %>
-        <% characters.each do |character| %>
-          <div class="character">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{character.capitalize}" %> </li> 
-            </ul>
-          </div>
-        <% end %>
-      </div>
-    
-    <div class="preferences-item">
-      <h1 class="preferences-text">Interests</h1>
-      <div class="interests-list">
-        <% interests = [ "sailing", "swimming", "shopping", "sun bathing", "scuba diving", "island tours", "snorkeling", "windsurfing", "fishing", "casino", "beach walk", "exercise", "parasailing", "dining ashore", "water skiing", "wave running", "music dancing"] %>
-          <% interests.each do |interest| %>
-            <div class="interest">
-              <ul class="preference-list">
-                <li> <input type="checkbox" class="checkbox"><%= " #{interest.capitalize}" %> </li> 
-              </ul>
-            </div>
-          <% end %>
-      </div>
-    </div>
-        
-    <div class="preferences-item">
-      <h1 class="preferences-text">Food Preferences</h1>
-      <h2 class="second-heading">Eggs</h2>
-      <div class="pref-column-list">
-        <% eggs = ["SOFT BOILED", "HARD BOILED", "SCRAMBLED", "FRIED", "POACHED", "OMELETTE"] %>
-          <% eggs.each do |egg| %>
-            <div class="food_preference">
-              <ul class="preference-list">
-                <li> <input type="checkbox" class="checkbox"><%= " #{egg.capitalize}" %> </li> 
-              </ul>
-            </div>
-        <% end %> 
-      </div>
-    </div>
-
-      <div class="preferences-item">
-        <h2 class="second-heading">DAIRY-FREE</h2>
-        <div class="pref-column-list">
-          <% dairys_free = ["ALMOND", "SOYA", "RICE", "COCONUT", "LACTOSE-FREE", "HAZELNUT"] %>
-          <% dairys_free.each do |dairy_free| %>
-              <div class="food_preference">
-                <ul class="preference-list">
-                  <li> <input type="checkbox" class="checkbox"><%= " #{dairy_free.capitalize} milk" %> </li> 
-                </ul>
-              </div>
-          <% end %>
-      </div> 
-    </div> 
-
-    <h2 class="second-heading">BREAKFAST</h2>
-    <div class="interests-list">
-      <% breakfast_foods = ["LIGHT", "CONTINENTAL", "COOKED BREAKFAST", "NOTHING", "Bacon", "Sausage", "Ham", "Potatoes",  "French Toast", "Pancakes", "Waffles", "Croissants", "English Muffins", "Muffins", "Jelly/Jam", "Spreads", "Whole Milk", "2% Milk"] %>
-      <% breakfast_foods.each do |breakfast_food| %>
-        <div class="food_preference">
-          <ul class="preference-list">
-            <li> <input type="checkbox" class="checkbox"><%= " #{breakfast_food.capitalize}" %> </li> 
-          </ul>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="pref-column">
-      <h2 class="second-heading">MEAT</h2>
-      <div class="pref-column-list">
-        <% meats = ["RARE", "MEDIUM-RARE", "WELL-DONE"] %>
-        <% meats.each do |meat| %>
-            <div class="food_preference">
-              <ul class="preference-list">
-                <li> <input type="checkbox" class="checkbox"><%= " #{meat.capitalize}" %> </li> 
-              </ul>
-            </div>
-        <% end %> 
-      </div>
-
-      <h2 class="second-heading">BREAD</h2>
-      <div class="pref-column-list">
-        <% bread_types = [ "Rye", "White", "Brown" ] %>
-        <% bread_types.each do |bread_type| %>
-          <div class="food_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{bread_type.capitalize}" %> </li> 
-            </ul>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="pref-column">
-      <h2 class="second-heading">LUNCH</h2>
-      <div class="pref-column-list">
-        <% lunch_types = ["LIGHT", "SANDWICHES", "HOT", "COLD-MEATS", "SALADS", "SOUP", "EGGS"] %>
-        <% lunch_types.each do |lunch_type| %>
-          <div class="food_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{lunch_type.capitalize}" %> </li> 
-            </ul>
-          </div>
-        <% end %>
-      </div>
-
-      <h2 class="second-heading">HORS D'OEUVRES</h2>
-      <div class="pref-column-list">
-        <% hors_doeuvres = ["CAVIAR", "PATÉ", "CRUDITÉS", "SUSHI", "NUTS", "CRISPS", "CHARCUTERIE"] %>
-        <% hors_doeuvres.each do |hors_doeuvre| %>
-          <div class="food_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{hors_doeuvre.capitalize}" %> </li> 
-            </ul>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-    <h2 class="second-heading">SNACKS</h2>
-    <div class="interests-list">
-      <% snacks = ["CAKES", "BISCUITS", "MUFFINS", "BROWNIES", "SCONES", "BUNS", "PROTEIN BARS", "NUTS", "FRESH FRUIT", "DRIED FRUIT", "SEEDS", "POPCORN", "CRUDITÉS & DIPS", "YOGURTS"] %>
-      <% snacks.each do |snack| %>
-          <div class="food_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{snack.capitalize}" %> </li> 
-          </ul>
-        </div>
-      <% end %>
-    </div>
-
-    <h2 class="second-heading">CUISINE PREFERENCES</h2>
-    <div class="interests-list">
-      <% cuisines = ["OPEN TO NEW FLAVOURS", "PREFERENCE FOR TRADITIONAL", "SPANISH", "ITALIAN",  "FRENCH", "MEDITERRANEAN", "MEXICAN", "THAI", "FUSION", "AMERICAN", "BRITISH", "INDIAN", "CHINESE"] %>
-      <% cuisines.each do |cuisine| %>
-        <div class="food_preference">
-          <ul class="preference-list">
-            <li> <input type="checkbox" class="checkbox"><%= " #{cuisine.capitalize}" %> </li> 
-          </ul>
-        </div>
-      <% end %>
-    </div>
-
-    <h2 class="second-heading">VEGETABLES</h2>
-    <div class="interests-list">
-      <% vegetables = ["BROCCOLI", "MUSHROOMS", "CAULIFLOWER", "CARROTS", "COURGETTE", "PEAS", "POTATOES", "SPINACH", "TOMATOS", "CORN", "ONIONS", "COURGETTES"] %>
-      <% vegetables.each do |vegetable| %>
-          <div class="food_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{vegetable.capitalize}" %> </li> 
-          </ul>
-        </div>
-      <% end %>
-    </div>
-
-    <h2 class="second-heading">DESSERTS</h2>
-    <div class="interests-list">
-      <% desserts = ["TARTS", "CAKES", "ICE CREAM", "FRUIT", "YOGURT", "CHOCOLATE", "MOUSSE", "CRUMBLE"] %>
-      <% desserts.each do |dessert| %>
-        <div class="food_preference">
-          <ul class="preference-list">
-            <li> <input type="checkbox" class="checkbox"><%= " #{dessert.capitalize}" %> </li> 
-          </ul>
-        </div>
-      <% end %> 
-    </div>
-
-    <h2 class="second-heading">SOFT DRINKS</h2>
-    <div class="interests-list">
-      <% soft_drinks = ["Coke", "Diet Coke", "Sprite", "Diet Sprite", "Pepsi", "Diet Pepsi", "Caffeine-free", "Ginger Ale", "Lemonade", "Orange Juice", "Grapefruit Juice", "Apple Juice", "Cranberry Juice", "Tomato Juice", "Club Soda", "Tonic Water", "Still water", "Sparkling water"] %>
-        <% soft_drinks.each do |soft_drink| %>
-          <div class="beverage_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{soft_drink.capitalize}" %> </li> 
-            </ul>
-          </div>
-        <% end %>
-    </div>
-
-    <div class="pref-column">
-      <h2 class="second-heading">HOT DRINKS</h2>
-      <div class="pref-column-list">
-        <% hot_drinks = ["Regular coffee/tea", "Decaf coffee/tea", "Espresso", "Ice Tea/herbal tea", "Hot Chocolate"] %>
-          <% hot_drinks.each do |hot_drink| %>
-            <div class="beverage_preference">
-              <ul class="preference-list">
-                <li> <input type="checkbox" class="checkbox"><%= " #{hot_drink.capitalize}" %> </li> 
-              </ul>
-            </div>
-          <% end %>
-      </div>
-
-      <h2 class="second-heading">GIN</h2>
-      <div class="pref-column-list">
-        <% gins = ["Bombay", "Tangueray", "Beefeater", "Sapphire", "Gordon"] %>
-          <% gins.each do |gin| %>
-            <div class="alcohol_preference">
-              <ul class="preference-list">
-                <li> <input type="checkbox" class="checkbox"><%= " #{gin.capitalize}" %> </li> 
-              </ul>
-            </div>
-          <% end %>
-      </div>
-    </div>
-
-    <h2 class="second-heading">BEERS</h2>
-    <div class="interests-list">
-      <% beers = ["Amstel", "Miller", "Heineken", "Miller lite", "Amstel lite", "Budweiser", "Corona", "Budweiser light", "Corona light", "Icehouse", "Guiness", "Coors light"] %>
-        <% beers.each do |beer| %>
-          <div class="alcohol_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{beer.capitalize}" %> </li> 
-            </ul>
-          </div>
-        <% end %>
-    </div>
-
-    <h2 class="second-heading">WHISKEY</h2>
-    <div class="interests-list">
-      <% whiskys = ["Johnny Walker", "Dewars", "J & B", "Glenlivet", "Glenfiddich", "Famous Grouse", "Blue Label", "Cutty Sark", "Jack Daniels", "Crown Royal", "Seagrams", "Canadian Club"] %>
-        <% whiskys.each do |whisky| %>
-          <div class="alcohol_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{whisky.capitalize}" %> </li> 
-            </ul>
-          </div>
-        <% end %>
-    </div>
-
-    <h2 class="second-heading">RUM</h2>
-    <div class="food-preferences-list">
-      <% rhums = ["Bacardi", "Havana Club", "Malibu", "Mount Gay", "Myers"] %>
-        <% rhums.each do |rhum| %>
-          <div class="alcohol_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{rhum.capitalize}" %> </li> 
-           </ul>
-         </div>
-        <% end %>
-    </div>
-
-    <h2 class="second-heading">ALCOHOLS</h2>
-    <div class="interests-list">
-      <% other_alcohols = ["Limoncello", "Cognac", "Grappa", "Hierbas", "Brandy", "Port", "Amaretto", "Baileys", "Cointreau", "Drambuie", "Grand Marnier", "Galliano", "Kahlua", "Campari", "Sambucca", "Sherry", "Port", "Tia Maria"] %>
-        <% other_alcohols.each do |other_alcohol| %>
-          <div class="alcohol_preference">
-            <ul class="preference-list">
-              <li> <input type="checkbox" class="checkbox"><%= " #{other_alcohol.capitalize}" %> </li> 
-            </ul>
-          </div>
-        <% end %>
-    </div>
-
-    <div class="pref-column">
-      <h2 class="second-heading">VODKA</h2>
-      <div class="pref-column-list">
-        <% vodkas = ["Smirnoff", "Stoli", "Grey Goose", "Kettle One", "Absolut", "Belvedere", "Vox"] %>
-          <% vodkas.each do |vodka| %>
-            <div class="alcohol_preference">
-              <ul class="preference-list">
-                <li> <input type="checkbox" class="checkbox"><%= " #{vodka.capitalize}" %> </li> 
-              </ul>
-            </div>
-          <% end %>
-      </div>
-
-      <h2 class="second-heading">COCKTAILS</h2>
-      <div class="pref-column-list">
-        <% cocktails = ["Pina Colada", "Martinis", "Bloody Mary", "Cosmo", "Margarita", "Rum Punch", "Daiquiri"] %>
-          <% cocktails.each do |cocktail| %>
-            <div class="alcohol_preference">
-              <ul class="preference-list">
-                <li> <input type="checkbox" class="checkbox"><%= " #{cocktail.capitalize}" %> </li> 
-              </ul>
-            </div>
-          <% end %>
-      </div>
-    </div>
+  </div>
 </div>
