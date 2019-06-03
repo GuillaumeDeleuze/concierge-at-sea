@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 
 
 
-    response = RestClient.get "https://api.darksky.net/forecast/#{ENV['WEATHER_API_KEY']}/42.3601,-71.0589"
+    response = RestClient.get "https://api.darksky.net/forecast/#{ENV['WEATHER_API_KEY']}/#{request.location.latitude},#{request.location.longitude}"
     @currently = eval(response.body)[:currently]
     @daily = eval(response.body)[:daily][:data].first
     weathers = {
