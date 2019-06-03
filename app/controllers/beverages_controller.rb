@@ -26,14 +26,20 @@ class BeveragesController < ApplicationController
 
     def update
         @beverage.update(beverage_params)
-        redirect_back(fallback_location: users_path)
-        flash[:notice] = "Ordered"
+        if @beverage.quantity > @old_beverage.quantity
+            flash[:notice] = "Ordered"
+            redirect_back(fallback_location: users_path)
+        else
+            flash[:notice] = "Removed"
+            redirect_back(fallback_location: users_path)
+        end
     end
 
     private
 
     def set_beverage
         @beverage = Beverage.find(params[:id])
+        @old_beverage = Beverage.find(params[:id])
     end
 
     def beverage_params

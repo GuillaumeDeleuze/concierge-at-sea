@@ -12,8 +12,13 @@ class ActivitiesController < ApplicationController
 
     def update
         @activity.update(activity_params)
-        redirect_back(fallback_location: users_path)
-        flash[:notice] = "Reserved"
+        if @activity.reserved == 'not_reserved'
+            flash[:notice] = "Cancelled"
+            redirect_back(fallback_location: users_path)
+        else
+            flash[:notice] = "Reserved"
+            redirect_back(fallback_location: users_path)
+        end
     end
 
     private
