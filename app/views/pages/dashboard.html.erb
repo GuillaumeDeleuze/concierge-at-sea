@@ -16,6 +16,8 @@
   <i class="<%= @icon %> weather-icon"></i>
   <div class="weather-heading">
     Today's Weather
+    <%= request.location.latitude %>
+    <%= request.location.longitude %>
   <ul class="weather-list">
     <li class="weather-list"><%= @currently[:summary] %></li>
     <li class="weather-list"><%= @currently[:temperature] %> °C</li>

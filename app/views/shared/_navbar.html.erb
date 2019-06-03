@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <nav class="navbar navbar-light justify-content-between">
   <% unless current_page?('/dashboard') %>
-    <#%= link_to (image_tag("back-arrow.svg")), request.referer.present? ? request.referer : default_path %>
+    <%= link_to (image_tag("back-arrow.svg")), request.referer.present? ? request.referer : default_path %>
   <% end %>  
       <%= link_to (image_tag("caslogo-transparent.png", class:'caslogo-navbar')), dashboard_path %>
 
