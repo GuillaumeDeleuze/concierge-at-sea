@@ -15,7 +15,7 @@
 
         <div class="quantity-buttons">
           <%= simple_form_for soft_drink do |f| %>
-              <%= f.hidden_field :quantity, :value => "#{soft_drink.quantity - 1}"  %>
+              <%= f.hidden_field :quantity, :value => "#{soft_drink.quantity == 0 ? soft_drink.quantity = soft_drink.quantity : soft_drink.quantity - 1}"  %>
               <%= f.button :submit, "-", class: "btn-drink" %>
           <% end %> 
 

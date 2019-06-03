@@ -13,18 +13,24 @@
 
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-  <i class="<%= @icon %> weather-icon"></i>
-  <div class="weather-heading">
-    Today's Weather
-  <ul class="weather-list">
-    <li class="weather-list"><%= @currently[:summary] %></li>
-    <li class="weather-list"><%= @currently[:temperature] %> °C</li>
-    <li class="weather-list"><%= @currently[:precipProbability] %> % chance of rain</li>
-    <li class="weather-list">Nearest storm : <%= @currently[:nearestStormDistance] %> Kms away</li>
-    <li class="weather-list">Sunrise : <%= DateTime.strptime("#{@daily[:sunriseTime]}",'%s').strftime("%H:%M") %></li>
-    <li class="weather-list">Sunset : <%= DateTime.strptime("#{@daily[:sunsetTime]}",'%s').strftime("%H:%M") %></li> 
-  </ul>
-  </div>
+  <% if request.location.latitude == nil  %>
+    <div class="weather-heading">
+      Active your localisation if you want to display the current weather
+    </div>
+  <% else %>
+    <i class="<%= @icon %> weather-icon"></i>
+    <div class="weather-heading">
+      Today's Weather
+    <ul class="weather-list">
+      <li class="weather-list"><%= @currently[:summary] %></li>
+      <li class="weather-list"><%= @currently[:temperature] %> °C</li>
+      <li class="weather-list"><%= @currently[:precipProbability] %> % chance of rain</li>
+      <li class="weather-list">Nearest storm : <%= @currently[:nearestStormDistance] %> Kms away</li>
+      <li class="weather-list">Sunrise : <%= DateTime.strptime("#{@daily[:sunriseTime]}",'%s').strftime("%H:%M") %></li>
+      <li class="weather-list">Sunset : <%= DateTime.strptime("#{@daily[:sunsetTime]}",'%s').strftime("%H:%M") %></li> 
+    </ul>
+    </div>
+  <% end %>
 </div>
 
 <%= link_to chatroom_path(@chatroom.id), :action => 'go' do %>
@@ -82,7 +88,7 @@
 
 <%= link_to booking_beverages_path(current_user.booking), :action => 'go' do %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-  url(https://images.pexels.com/photos/2104558/pexels-photo-2104558.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+  url(https://images.pexels.com/photos/605408/pexels-photo-605408.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Beverages
   </div>
 <% end %>

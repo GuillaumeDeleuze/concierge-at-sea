@@ -9,8 +9,13 @@ class TendersController < ApplicationController
 
     def update
         @tender.update(tender_params)
-        redirect_back(fallback_location: users_path)
-        flash[:notice] = "Reserved"
+        if @tender.called == 'not_called'
+            flash[:notice] = "Cancelled"
+            redirect_back(fallback_location: users_path)
+        else
+            flash[:notice] = "Reserved"
+            redirect_back(fallback_location: users_path)
+        end
     end
 
     private
