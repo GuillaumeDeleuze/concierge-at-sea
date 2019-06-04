@@ -1,13 +1,19 @@
-<% @guest_users.each do |guest_user| %>
-    <%= guest_user.name %>
-    <% if guest_user.guest_information == nil %>
-        <%= "There is no Guest Information for #{guest_user.name}" %>
-    <% else %>
-        <%= link_to "Guest Information", guest_information_path(guest_user.guest_information) %>
+<div class="container-pref-crew">
+    <% @guest_users.each do |guest_user| %>
+        <%= guest_user.name %>'s :
+        <div class="guest-info-crew">
+            <% if guest_user.guest_information == nil %>
+                <%= "There is no Guest Information for #{guest_user.name}" %>
+            <% else %>
+                <%= link_to "Guest Information", guest_information_path(guest_user.guest_information) %>
+            <% end %>
+        </div>
+        <div class="guest-pref-crew">
+            <% if guest_user.guest_preference == nil %>
+                <%= "There is no Guest Preferences for #{guest_user.name}" %>
+            <% else %>
+            <%= link_to "Guest Preferences", guest_preference_path(guest_user.guest_preference) %>
+            <% end %>
+        </div>
     <% end %>
-    <% if guest_user.guest_preference == nil %>
-        <%= "There is no Guest Preferences for #{guest_user.name}" %>
-    <% else %>
-    <%= link_to "Guest Preferences", guest_preference_path(guest_user.guest_preference) %>
-    <% end %>
-<% end %>
+</div>

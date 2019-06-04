@@ -1,55 +1,59 @@
 <html class="order">
 <div class="dashboard-notifications">
-  <h1 class="login-text-dashboard">Guest Orders</h1>
+  <h1 class="title-order">Guest Orders</h1>
 </div>
 
 <div class="agenda-input">
     <% @activities.each do |activity| %>
-        <h1 class="login-text-dashboard">
+        <h1 class="sub-title-order">
             <%= activity.name %>
         </h1>
-        <p class="agenda-text">
+        <p class="order-text">
             <%= "#{activity.start_at.strftime('%m/%d at %I:%M%p')} for #{activity.number_of_guest} guest(s)" %>
         </p>
+        
+        <div class="a-r">
+            <%= simple_form_for activity do |f| %>
+                <%= f.hidden_field :reserved, :value => 'accepted' %>
+                <%= f.button :submit, "ACCEPT", class: 'btn-order-a' %>
+            <% end %>
 
-        <%= simple_form_for activity do |f| %>
-            <%= f.hidden_field :reserved, :value => 'accepted' %>
-            <%= f.button :submit, "ACCEPT", class: 'btn-tender' %>
-        <% end %>
-
-        <%= simple_form_for activity do |f| %>
-            <%= f.hidden_field :reserved, :value => 'not_reserved' %>
-            <%= f.button :submit, "REFUSE", class: 'btn-tender' %>
-        <% end %>
+            <%= simple_form_for activity do |f| %>
+                <%= f.hidden_field :reserved, :value => 'not_reserved' %>
+                <%= f.button :submit, "REFUSE", class: 'btn-order-r' %>
+            <% end %>
+        </div>
 
     <% end %> 
 
     <% @beverages.each do |beverage| %>
-        <h1 class="login-text-dashboard">
+        <h1 class="sub-title-order">
             <%= "#{beverage.quantity} #{beverage.name}" %>
         </h1>
 
 
         <%= simple_form_for beverage do |f| %>
             <%= f.hidden_field :quantity, :value => 0 %>
-            <%= f.button :submit, "DELIVERED", class: 'btn-tender' %>
+            <%= f.button :submit, "DELIVERED", class: 'btn-order' %>
         <% end %>
     <% end %> 
 
     <% @tenders.each do |tender| %>
-        <p class="agenda-text">
+        <h1 class="sub-title-order">
             <%= "Tender called for #{tender.time.strftime('%m/%d at %I:%M%p')}" %>
-        </p>
+        </h1>
 
-        <%= simple_form_for tender do |f| %>
-            <%= f.hidden_field :called, :value => 'accepted' %>
-            <%= f.button :submit, "ACCEPT", class: 'btn-tender' %>
-        <% end %>
+        <div class="a-r">
+            <%= simple_form_for tender do |f| %>
+                <%= f.hidden_field :called, :value => 'accepted' %>
+                <%= f.button :submit, "ACCEPT", class: 'btn-order-a' %>
+            <% end %>
 
 
-        <%= simple_form_for tender do |f| %>
-            <%= f.hidden_field :called, :value => 'not_called' %>
-            <%= f.button :submit, "REFUSE", class: 'btn-tender' %>
-        <% end %>
+            <%= simple_form_for tender do |f| %>
+                <%= f.hidden_field :called, :value => 'not_called' %>
+                <%= f.button :submit, "REFUSE", class: 'btn-order-r' %>
+            <% end %>
+        </div>
     <% end %> 
 </div>
