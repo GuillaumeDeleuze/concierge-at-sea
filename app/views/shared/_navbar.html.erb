@@ -4,23 +4,6 @@
     <%#= link_to (image_tag("back-arrow.svg")), request.referer.present? ? request.referer : default_path %>
   <% end %>  
       <%= link_to (image_tag("caslogo-transparent.png", class:'caslogo-navbar')), dashboard_path %>
-
-      <% chat = current_user.booking.chatrooms.where(:name => "General").first %>
-      <%= simple_form_for [chat, Message.new(chatroom: chat)] do |f| %>
-        <div class="form-control mr-sm-2 input-group">
-          <%= f.input :content, as: :string,
-                                      wrapper: false,
-                                      label: false,
-                                      input_html: {
-                                        class: 'chat-input'
-                                      } %>
-          <span class="input-group-btn">
-            <button class="btn btn-success" type="button">
-              <%= f.submit "Ask", class:"fas fa-search" %>
-            </button>
-          </span>
-        </div>
-      <% end %>
     </div>
   </nav>
 <% end %>

@@ -1,4 +1,3 @@
-<html class="agenda">
 <div class="dashboard-notifications">
   <h1 class="login-text-agenda">Your Agenda</h1>
 </div>
@@ -14,7 +13,7 @@
             <%= simple_form_for activity do |f| %>
                 <%= f.hidden_field :reserved, :value => 'not_reserved' %>
                 <button type="button" class="btn-agenda"><i class="fas fa-trash"></i>
-                    <%= f.button :submit, value: "" %>
+                    <%= f.button :submit, value: '' %>
                 </button>
             <% end %>
         
