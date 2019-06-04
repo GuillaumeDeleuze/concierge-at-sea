@@ -1,8 +1,7 @@
 <html class="home-background">
 <div class="banner_wrapper_login">
   <div class="container_login_text">
-  <%= image_tag("caslogo-transparent.png", class:"caslogo-transparent" ) %>
-  <h1 class="login-text">CONCIERGE AT SEA</h1>
+  <%= image_tag("CASLOGO.png", class:"caslogo-transparent" ) %>
   <h1 class="login-text-sub">LAUNCH YOUR CRUISING PORT OF CALL</h1>
 
   <div class="form-input-login">
@@ -19,10 +18,10 @@
                     label: false,
                     input_html: { autocomplete: "current-password" },
                     placeholder: "••••••••" %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      <%= render "devise/shared/links" %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= render "devise/shared/links" %>
       </div>
-      <button type="button", class="login-page">
+      <button type="button", class="login-page-btn">
         <%= f.button :submit, "LOGIN" %>
       </button>
     <% end %>
