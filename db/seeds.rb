@@ -12,7 +12,7 @@ Dish.destroy_all
 
 puts 'Creating 1 fake yatch...'
 yatch = Yatch.new(
-  yatch_name: "Vive Guillaume",
+  yatch_name: "My Giraud",
   localisation: "Avinguda de Gabriel Roca i Garcías, 27, 07157 Andratx, Illes Balears",
 )
 yatch.save!
@@ -24,247 +24,193 @@ tender = Tender.new(
   )
   tender.save!
   puts 'Finished'
-  
+
   puts 'Creating 1 fake booking'
   booking = Booking.new(
     yatch_id: 1,
+  	start_at: "2019.06.08",
+	  end_at: "2019.06.11"
   )
   booking.save!
 
-  puts 'Creating 1 fake chatroom'
+ puts 'Creating 1 fake chatroom'
   chatroom = Chatroom.new(
     booking_id: 1,
     name: "General"
   )
   chatroom.save!
   puts 'Finished'
-  
-  puts 'Creating 1 fake User'
-user = User.new(
-  email: 'toto@toto.com',
-  name: 'Toto',
-  password: '123soleil',
-  booking_id: 1,
-  guest: true
-)
-user.save!
 
-puts 'Creating 1 fake Crew member'
-user = User.new(
-  email: 'titi@titi.com',
-  name: 'Titi',
-  password: '123soleil',
-  booking_id: 1,
-  crew: true
-)
-user.save!
+puts 'Guest'  
+guest_names = %w(Mitchell Claire Bryan Janet)
 
-
-puts 'Creating 5 fake hot drinks...'
-5.times do
-  beverage = Beverage.new(
-    beverage_type: 0,
-    name: Faker::Coffee.blend_name,
-    description: Faker::Coffee.notes,
-    booking_id: 1
-
-  )
-  beverage.save!
+guests = guest_names.map do |guest_name|
+	User.create(email: "#{guest_name.downcase}@cas.com", name: guest_name, password: '123soleil', booking_id: 1, guest: true)
 end
-puts 'Finished!'
 
-puts 'Creating 5 fake soft drinks...'
-5.times do
-  soft_drink = Beverage.new(
-    beverage_type: 2,
-    name: Faker::Cannabis.cannabinoid,
-    description: Faker::Cannabis.health_benefit,
-    booking_id: 1
-  )
-  soft_drink.save!
+puts 'Crew'
+crew_names = %w(Juan Christian Emma Sebastian)
+
+crews = crew_names.map do |crew_name|
+	User.create(email: "#{crew_name.downcase}@cas.com", name: crew_name, password: '123soleil', booking_id: 1, crew: true)
 end
-puts 'Finished!'
 
-puts 'Creating 5 fake alcohol...'
-5.times do
-  alcohol = Beverage.new(
-    beverage_type: 1,
-    name: Faker::Beer.name,
-    description: Faker::Beer.style,
-    booking_id: 1
-  )
-  alcohol.save!
+puts 'Beverages'
+hot_drinks = ["English Breakfast Tea", "Earl Grey Tea", "Peppermint Tea", "Green Tea", "Camomile", "Jasmine Tea", "Lemon & Tea", "Red fruits Tea", "Espresso", "Americano", "Decaff", "Espresso Macchiato", "Cappuccino", "Caffe Latte"]
+
+beverage = hot_drinks.map do |hot_drink|
+	Beverage.create( beverage_type: 0, name: hot_drink, description: "", booking_id: 1)
 end
-puts 'Finished!'
+  
+soft_drinks = ["Orange Juice", "Apple Juice", "Lemonade", "Fanta", "Coca Cola", "Sparkling water", "Still water", "Milk"]
 
-puts 'Creating 5 fake all day dining...'
-5.times do
-  all_day_dining = Beverage.new(
-    beverage_type: 3,
-    name: Faker::Food.dish,
-    description: Faker::Food.description,
-    booking_id: 1
-  )
-  all_day_dining.save!
+beverage = soft_drinks.map do |soft_drink|
+	Beverage.create( beverage_type: 1, name: soft_drink, description: "", booking_id: 1)
 end
-puts 'Finished!'
 
-puts 'Creating 5 fake activities...'
-  jetski = Activity.create!({
-    yatch_id: 1,
-    name: "Jet ski",
-    description: "Hop aboard one of our jet skis to feel the wind rush through your hair at high speed.
-    Bounce over waves, skate around in tight circles and let your freedom take you for a fun outing.",
-    photo: "jetski.jpg"
-  })
-  
-  wakeboard = Activity.create!({
-    yatch_id: 1,
-    name: "Wakeboard",
-    description: "Ride the wake produced by the towing boat, and attempt to do tricks through this sporty activity.",
-    photo: "wakeboard.jpg"
-  })
-  
-  scubadiving = Activity.create!({
-    yatch_id: 1,
-    name: "Scuba diving",
-    description: "One of the greatest ways to submerge yourself in the underwater life around your home onboard our
-    boat during your stay. We provide all necessary equiptment to support your comfort and safety while diving.",
-    photo: "scubadiving.jpg"
-  })
-  
-  yoga = Activity.create!({
-    yatch_id: 1,
-    name: "Yoga",
-    description: "Choose between ashtanga, hatha, yin yoga and meditative classes at any hour of the day with us.",
-    photo: "yoga.jpg"
-  })
-  
-  paddleboard = Activity.create!({
-    yatch_id: 1,
-    name: "Paddleboard",
-    description: "Take to the sea in a novel experience on a stand-up paddleboard. Tie in a gorgeous outing to capture the views with a spot of sport as this activity will be sure to tone your muscles and test your balance.",
-    photo: "paddle.jpg"
-  })
-puts 'Finished!'
+alcohols = ["Gin & Tonic", "Vodka", "Whiskey", "Rum", "Negroni", "Cava", "Champagne", "Beer", "Red Wine", "White Wine", "Rosé"]
 
-puts 'Creating 3 fake menus...'
-first_menu = Menu.new(
-  date: Date.current,
-  booking_id: 1
+beverage = alcohols.map do |alcohol|
+	Beverage.create( beverage_type: 2, name: alcohol, description: "", booking_id: 1)
+end
+
+
+puts 'Activities'
+activities = ["SEABOB", "JET SKI", "WATER SLIDE", "WAKEBOARD", "KAYAK", "PADDLE BOARD", "BANANA BOAT", "SNORKELLING", "FISHING", "WATER SKIS"]
+
+
+Activity.create(yatch_id: 1, 
+	name: "Seabob",
+	 description: "Ride along or below the waves in the guise of a dolphin with our on board seabob. This is an individual experience and fun way to feel the sea pass you by.",
+	 photo: "seabob.jpg"
 )
-first_menu.save!
 
-second_menu = Menu.new(
-  date: Date.yesterday,
-  booking_id: 1
+Activity.create(yatch_id: 1, 
+	name: "Jet Ski",
+	 description: "Feel the sea air through your hair and catch some speed while riding aboard our jet skis. Let it be known that you must complete a 30-minute safety session prior to your ride. This activity may be enjoyed for a maximum of 2 guests at a time on each jet ski.",
+	 photo: "jetski.jpg"
 )
-second_menu.save!
 
-third_menu = Menu.new(
-  date: Date.tomorrow,
-  booking_id: 1
+Activity.create(yatch_id: 1, 
+	name: "Water Slide",
+	 description: "Slide away from Giraud down the water slide and take a dip in the sea. Our slide is a fun way to take the plunge.",
+	 photo: "waterslide.jpg"
 )
-third_menu.save!
-puts 'Finished!'
 
-puts 'Creating 4 fake Dishes per menu'
-dish = Dish.new(
-  menu_id: 1,
-  dish_type: 0,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
+Activity.create(yatch_id: 1, 
+	name: "Wakeboard",
+	 description: "Let our crew tow you along on one board to catch the waves and test your balance. This is fun, but takes a while to master.",
+	 photo: "wakeboard.jpg"
 )
-dish.save!
 
-dish = Dish.new(
-  menu_id: 1,
-  dish_type: 1,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
+Activity.create(yatch_id: 1, 
+	name: "Kayak",
+	 description: "Step inside the kayak alone, with a friend or family member. These kayaks have 2 seats and can take you on your own voyage out to see wherever you wish.",
+	 photo: "kayak.jpg"
 )
-dish.save!
 
-dish = Dish.new(
-  menu_id: 1,
-  dish_type: 2,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
+Activity.create(yatch_id: 1, 
+	name: "Paddle Board",
+	 description: "This activity provides your daily dose on an arm workout and tanning opportunity. Make sure to book the paddleboard when the sea is not too rough, so that you give yourself a chance to balance and travel a bit.",
+	 photo: "paddleboard.jpg"
 )
-dish.save!
 
-dish = Dish.new(
-  menu_id: 1,
-  dish_type: 3,
-  name: Faker::Dessert.variety,
-  description: Faker::Dessert.flavor
+Activity.create(yatch_id: 1, 
+	name: "Banana Boat",
+	 description: "Hop aboard the banana boat for a more bouncy ride along the waves. Our crew will give you a fun ride and flip you round corners in the hope that you will have a refreshing dip in the sea.",
+	 photo: "bananaboat.jpg"
 )
-dish.save!
 
-
-
-dish = Dish.new(
-  menu_id: 2,
-  dish_type: 0,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
+Activity.create(yatch_id: 1, 
+	name: "Snorkelling",
+	 description: "Immerse yourself in the sea life that lives beneath you while on-board Giraud. Our snorkelling gear is sure to satisfy you with new sights and a beautiful underwater experience.",
+	 photo: "snorkelling.jpg"
 )
-dish.save!
 
-dish = Dish.new(
-  menu_id: 2,
-  dish_type: 1,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
+Activity.create(yatch_id: 1, 
+	name: "Fishing",
+	 description: "Try your luck at catching fish and seafood from wherever you take the tackle. This is one of the more relaxing activities we offer our guests. ",
+	 photo: "fishing.jpg"
 )
-dish.save!
 
-dish = Dish.new(
-  menu_id: 2,
-  dish_type: 2,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
+Activity.create(yatch_id: 1, 
+	name: "Water Skis",
+	 description: "Get that skiing sensation summer style on our water skis. Wear 2 skis and control your balance as our speedboat pulls you along to fly above the waves. ",
+	 photo: "waterskis.jpg"
 )
-dish.save!
 
-dish = Dish.new(
-  menu_id: 2,
-  dish_type: 3,
-  name: Faker::Dessert.variety,
-  description: Faker::Dessert.flavor
-)
-dish.save!
+puts 'Menu'
+Menu.create(date: "2019.06.08", booking_id: 1)
+Menu.create(date: "2019.06.09", booking_id: 1)
+Menu.create(date: "2019.06.10", booking_id: 1)
+Menu.create(date: "2019.06.11", booking_id: 1)
+
+puts 'Dish'
+Dish.create(menu_id: 1, dish_type: 0, name: "Smoked Goats Cheese & Miso Mousse", description: "")
+Dish.create(menu_id: 1, dish_type: 0, name: "Beetroot Crostini/ Lovage (Vegetarian) ", description: "")
+Dish.create(menu_id: 1, dish_type: 0, name: "Sherry vinegar & Black Pepper Whipped Tofu (Vegan Option)", description: "")
+Dish.create(menu_id: 1, dish_type: 0, name: "Beetroot Crostini/ Lovage", description: "")
+
+Dish.create(menu_id: 1, dish_type: 1, name: "Smoked Steak Tartare", description: "")
+Dish.create(menu_id: 1, dish_type: 1, name: "Taleggio/ Mustard/ Truffle Potato Chips", description: "")
+Dish.create(menu_id: 1, dish_type: 1, name: "Beetroot & Chickpea Tartare ", description: "")
+Dish.create(menu_id: 1, dish_type: 1, name: "Taleggio/ Mustard/ Truffle Chips", description: "")
+
+Dish.create(menu_id: 1, dish_type: 2, name: "Fish", description: "")
+Dish.create(menu_id: 1, dish_type: 2, name: "Dashi/ Barlotti Beans/ Choi Sum / Clams/ Salsa Verde", description: "")
+Dish.create(menu_id: 1, dish_type: 2, name: "Charred Tenderstem Broccoli", description: "")
+Dish.create(menu_id: 1, dish_type: 2, name: "Crispy Tofu/ Salsa Verde/ Samjang Yoghurt/ Herb Salad", description: "")
+
+Dish.create(menu_id: 1, dish_type: 3, name: "Passionfruit Delice", description: "")
+Dish.create(menu_id: 1, dish_type: 3, name: "Candied Pine Nuts/ Mint/ Kiwi", description: "")
 
 
-dish = Dish.new(
-  menu_id: 3,
-  dish_type: 0,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
-)
-dish.save!
+Dish.create(menu_id: 2, dish_type: 0, name: "Avocado & Wasabi Mousse", description: "")
+Dish.create(menu_id: 2, dish_type: 0, name: "Kimchi Polenta/ Garlic/ Parsley ", description: "")
+Dish.create(menu_id: 2, dish_type: 0, name: "Brandade", description: "")
 
-dish = Dish.new(
-  menu_id: 3,
-  dish_type: 1,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
-)
-dish.save!
 
-dish = Dish.new(
-  menu_id: 3,
-  dish_type: 2,
-  name: Faker::Food.dish,
-  description: Faker::Food.description
-)
-dish.save!
+Dish.create(menu_id: 2, dish_type: 1, name: "Melon Ham", description: "")
+Dish.create(menu_id: 2, dish_type: 1, name: "Grilled Melon/ Tomato/ Popped Pepitas/ Balsamic Emulsion/ Coriander/ Ice Plant ", description: "")
 
-dish = Dish.new(
-  menu_id: 3,
-  dish_type: 3,
-  name: Faker::Dessert.variety,
-  description: Faker::Dessert.flavor
-)
-dish.save!
-puts 'Finished!'
+Dish.create(menu_id: 2, dish_type: 2, name: "Charred Cod", description: "")
+Dish.create(menu_id: 2, dish_type: 2, name: "BBQ Sweetcorn/ Bok Choi/ Radish/ Crispy Quinoa/ Chimichurri", description: "")
+Dish.create(menu_id: 2, dish_type: 2, name: "Falafal ", description: "")
+Dish.create(menu_id: 2, dish_type: 2, name: "BBQ Sweetcorn/ Bok Choi/ Radish/ Puffed Quinoa/ Chimichurri", description: "")
+
+Dish.create(menu_id: 2, dish_type: 3, name: "Compressed Watermelon", description: "")
+Dish.create(menu_id: 2, dish_type: 3, name: "Coconut Mousse, Candied Coconut, Passionfruit", description: "")
+
+
+Dish.create(menu_id: 3, dish_type: 0, name: "Arroz Negro Arancini", description: "")
+Dish.create(menu_id: 3, dish_type: 0, name: "Spring Onion & Siracha Mayonnaise ", description: "")
+Dish.create(menu_id: 3, dish_type: 0, name: "Tempura Enoki Mushroom", description: "")
+Dish.create(menu_id: 3, dish_type: 0, name: "Spring Onion & Siracha Mayonnaise (vegetarian Option)", description: "")
+
+Dish.create(menu_id: 3, dish_type: 1, name: "Slow Cooked Egg", description: "")
+Dish.create(menu_id: 3, dish_type: 1, name: "Parmesan and Truffle Sauce, Potato & Celeriac Crumble (vegetarian)", description: "")
+
+Dish.create(menu_id: 3, dish_type: 2, name: "Umami Braised Short Rib", description: "")
+Dish.create(menu_id: 3, dish_type: 2, name: "Miso & Broccoli Puree, Roasted Broccoli, Chilli, Radish & Crispy Shallots ", description: "")
+Dish.create(menu_id: 3, dish_type: 2, name: "Grilled Cauliflower Steak", description: "")
+Dish.create(menu_id: 3, dish_type: 2, name: "Miso & Broccoli Puree, Roasted Broccoli, Chilli, Radish & Crispy Shallots (vegetarian option)", description: "")
+
+Dish.create(menu_id: 3, dish_type: 3, name: "Salted Caramel Tart", description: "")
+Dish.create(menu_id: 3, dish_type: 3, name: "Milk Ice Cream, Candied Fuiettine", description: "")
+
+
+Dish.create(menu_id: 4, dish_type: 0, name: "Steamed Bun", description: "")
+Dish.create(menu_id: 4, dish_type: 0, name: "Truffle, Parmesan, Basil ", description: "")
+
+Dish.create(menu_id: 4, dish_type: 1, name: "Seabass Ceviche", description: "")
+Dish.create(menu_id: 4, dish_type: 1, name: "Mussel Cracker/ Black garlic Aioli", description: "")
+Dish.create(menu_id: 4, dish_type: 1, name: "Sweet Potato Ceviche ", description: "")
+Dish.create(menu_id: 4, dish_type: 1, name: "Tapioca Cracker/ Black Garlic Aioli", description: "")
+
+Dish.create(menu_id: 4, dish_type: 2, name: "Miso, franks & mustard glazed pork tenderloin", description: "")
+Dish.create(menu_id: 4, dish_type: 2, name: "Crispy pasta, pickled apple, bok choi laoganma chilli crisp", description: "")
+Dish.create(menu_id: 4, dish_type: 2, name: "Miso, franks & mustard glazed celeriac", description: "")
+Dish.create(menu_id: 4, dish_type: 2, name: "Crispy pasta, pickled apple, bok choi laoganma chilli crisp", description: "")
+
+Dish.create(menu_id: 4, dish_type: 3, name: "Buttermilk Pana Cotta", description: "")
+Dish.create(menu_id: 4, dish_type: 3, name: "Basil Jelly, Pomegranate, Honey Combe", description: "")
