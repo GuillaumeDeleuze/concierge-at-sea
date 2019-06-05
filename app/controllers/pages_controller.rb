@@ -15,6 +15,7 @@ class PagesController < ApplicationController
     @tenders_pending = Tender.where(yatch: current_user.booking.yatch).where(:called  => 'pending').count
     @chatroom = current_user.booking.chatrooms.where(:name => "General").first
     @total_orders = (@activities_pending + @beverages_pending + @tenders_pending)
+    @last_message = @chatroom.messages.last
 
 
 

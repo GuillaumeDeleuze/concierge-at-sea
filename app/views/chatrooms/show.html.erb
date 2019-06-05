@@ -9,7 +9,7 @@
   <div class="col chat-col">
     <div class="chat">
       <% @chatroom_messages.each do |chatroom_message| %>
-        <% if chatroom_message.user.crew? && chatroom_message.content != "" %>
+        <% if chatroom_message.user.crew? && chatroom_message.content != "" && chatroom_message.created_at >= Date.current - 2%>
           <div class="chat-message-container">
             <div class="row no-gutters">
               <div class="col-auto text-center">
@@ -29,7 +29,7 @@
                 </div>
             </div>
           </div>
-        <% elsif chatroom_message.user.guest? && chatroom_message.content != "" %>
+        <% elsif chatroom_message.user.guest? && chatroom_message.content != "" && chatroom_message.created_at >= Date.current - 2 %>
           <div class="chat-message-container">
             <div class="row no-gutters">
               <div class="col-auto text-center">
