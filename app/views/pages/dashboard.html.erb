@@ -3,9 +3,9 @@
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
     url(https://images.pexels.com/photos/1226398/pexels-photo-1226398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     <% if @total_orders == 1 %>
-      <%= "#{@total_orders} Order pending" %>
+      <%= "#{@total_orders} Pending Order" %>
     <% else %>
-      <%= "#{@total_orders} Order's pending" %>
+      <%= "#{@total_orders} Pending Orders" %>
     <% end %> 
     </div>  
   <% end %>
@@ -15,7 +15,7 @@
   url(https://images.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
   <% if request.location.latitude == nil  %>
     <div class="weather-heading">
-      Active your localisation if you want to display the current weather
+      Authorise acces to your location to display the current weather
     </div>
   <% else %>
     <i class="<%= @icon %> weather-icon"></i>

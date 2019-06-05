@@ -15,14 +15,14 @@
         
         <div class="quantity-buttons">
           <%= simple_form_for all_day_dining do |f| %>
-              <%= f.hidden_field :quantity, :value => "#{all_day_dining.quantity == 0 ? all_day_dining.quantity = all_day_dining.quantity : all_day_dining.quantity - 1}"  %>
+              <%= f.hidden_field :quantity, :class => "btn-drink", :value => "#{all_day_dining.quantity == 0 ? all_day_dining.quantity = all_day_dining.quantity : all_day_dining.quantity - 1}"  %>
               <%= f.button :submit, "-", class: "btn-drink" %>
           <% end %> 
 
         <p class="number-beverage"><%= all_day_dining.quantity %></p>
 
         <%= simple_form_for all_day_dining do |f| %>
-            <%= f.hidden_field :quantity, :value => "#{all_day_dining.quantity + 1}"  %>
+            <%= f.hidden_field :quantity, :class => "btn-drink", :value => "#{all_day_dining.quantity + 1}"  %>
             <%= f.button :submit, "+", class: "btn-drink" %>
         <% end %> 
         </div>
