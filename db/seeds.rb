@@ -36,14 +36,14 @@ puts 'Guest'
 guest_names = %w(Mitchell Claire Fiona Chris Gareth Frits)
 
 guests = guest_names.map do |guest_name|
-	User.create(email: "#{guest_name.downcase}@cas.com", name: guest_name, password: '123soleil', booking_id: 2, guest: true)
+	User.create(email: "#{guest_name.downcase}@giraud.com", name: guest_name, password: '123soleil', booking_id: 2, guest: true)
 end
 
 puts 'Crew'
 crew_names = %w(Juan Christian Emma Sebastian)
 
 crews = crew_names.map do |crew_name|
-	User.create(email: "#{crew_name.downcase}@cas.com", name: crew_name, password: '123soleil', booking_id: 2, crew: true)
+	User.create(email: "#{crew_name.downcase}@giraud.com", name: crew_name, password: '123soleil', booking_id: 2, crew: true)
 end
 
 puts 'Beverages'
