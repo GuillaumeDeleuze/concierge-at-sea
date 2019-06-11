@@ -37,9 +37,9 @@
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url(https://images.pexels.com/photos/292426/pexels-photo-292426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
     Chatroom
-    <% if current_user.crew? && @last_message.user.guest? %>
+    <% if current_user.crew? && @last_message.user.guest? && @last_message != nil %>
       <p><%= "(Last guest message at #{@last_message.created_at.hour}:#{@last_message.created_at.min})" %></p>
-    <% elsif current_user.guest? && @last_message.user.crew? %>
+    <% elsif current_user.guest? && @last_message.user.crew? && @last_message != nil %>
       <p><%= "(Last crew message at #{@last_message.created_at.hour}:#{@last_message.created_at.min})" %></p>
     <% end %>
   </div>
