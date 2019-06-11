@@ -65,13 +65,13 @@ end
 soft_drinks = ["Orange Juice", "Apple Juice", "Lemonade", "Fanta", "Coca Cola", "Sparkling water", "Still water", "Milk"]
 
 beverage = soft_drinks.map do |soft_drink|
-	Beverage.create( beverage_type: 1, name: soft_drink, description: "", booking_id: 1)
+	Beverage.create( beverage_type: 2, name: soft_drink, description: "", booking_id: 1)
 end
 
 alcohols = ["Gin & Tonic", "Vodka", "Whiskey", "Rum", "Negroni", "Cava", "Champagne", "Beer", "Red Wine", "White Wine", "Rosé"]
 
 beverage = alcohols.map do |alcohol|
-	Beverage.create( beverage_type: 2, name: alcohol, description: "", booking_id: 1)
+	Beverage.create( beverage_type: 1, name: alcohol, description: "", booking_id: 1)
 end
 
 
@@ -140,10 +140,10 @@ Activity.create(yatch_id: 1,
 )
 
 puts 'Menu'
-Menu.create(date: "2019.06.08", booking_id: 1)
-Menu.create(date: "2019.06.09", booking_id: 1)
-Menu.create(date: "2019.06.10", booking_id: 1)
 Menu.create(date: "2019.06.11", booking_id: 1)
+Menu.create(date: "2019.06.12", booking_id: 1)
+Menu.create(date: "2019.06.13", booking_id: 1)
+Menu.create(date: "2019.06.14", booking_id: 1)
 
 puts 'Dish'
 Dish.create(menu_id: 1, dish_type: 0, name: "Smoked Goats Cheese & Miso Mousse", description: "")
