@@ -1,5 +1,14 @@
 require 'faker'
 
+puts "delete db"
+Tender.destroy_all
+User.destroy_all
+Booking.destroy_all
+Yatch.destroy_all
+Beverage.destroy_all
+Activity.destroy_all
+Menu.destroy_all
+Dish.destroy_all
 
 puts 'Creating 1 fake yatch...'
 yatch = Yatch.new(
@@ -36,14 +45,14 @@ puts 'Guest'
 guest_names = %w(Mitchell Claire Fiona Chris Gareth Frits)
 
 guests = guest_names.map do |guest_name|
-	User.create(email: "#{guest_name.downcase}@giraud.com", name: guest_name, password: '123soleil', booking_id: 1, guest: true)
+	User.create(email: "#{guest_name.downcase}@cas.com", name: guest_name, password: '123soleil', booking_id: 1, guest: true)
 end
 
 puts 'Crew'
 crew_names = %w(Juan Christian Emma Sebastian)
 
 crews = crew_names.map do |crew_name|
-	User.create(email: "#{crew_name.downcase}@giraud.com", name: crew_name, password: '123soleil', booking_id: 1, crew: true)
+	User.create(email: "#{crew_name.downcase}@cas.com", name: crew_name, password: '123soleil', booking_id: 1, crew: true)
 end
 
 puts 'Beverages'
@@ -56,13 +65,13 @@ end
 soft_drinks = ["Orange Juice", "Apple Juice", "Lemonade", "Fanta", "Coca Cola", "Sparkling water", "Still water", "Milk"]
 
 beverage = soft_drinks.map do |soft_drink|
-	Beverage.create( beverage_type: 2, name: soft_drink, description: "", booking_id: 1)
+	Beverage.create( beverage_type: 1, name: soft_drink, description: "", booking_id: 1)
 end
 
 alcohols = ["Gin & Tonic", "Vodka", "Whiskey", "Rum", "Negroni", "Cava", "Champagne", "Beer", "Red Wine", "White Wine", "Rosé"]
 
 beverage = alcohols.map do |alcohol|
-	Beverage.create( beverage_type: 1, name: alcohol, description: "", booking_id: 1)
+	Beverage.create( beverage_type: 2, name: alcohol, description: "", booking_id: 1)
 end
 
 
@@ -131,10 +140,10 @@ Activity.create(yatch_id: 1,
 )
 
 puts 'Menu'
-Menu.create(date: "2019.06.13", booking_id: 1)
-Menu.create(date: "2019.06.14", booking_id: 1)
-Menu.create(date: "2019.06.15", booking_id: 1)
-Menu.create(date: "2019.06.16", booking_id: 1)
+Menu.create(date: "2019.06.08", booking_id: 1)
+Menu.create(date: "2019.06.09", booking_id: 1)
+Menu.create(date: "2019.06.10", booking_id: 1)
+Menu.create(date: "2019.06.11", booking_id: 1)
 
 puts 'Dish'
 Dish.create(menu_id: 1, dish_type: 0, name: "Smoked Goats Cheese & Miso Mousse", description: "")
