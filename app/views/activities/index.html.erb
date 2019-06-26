@@ -9,6 +9,8 @@
           <div>
             <h2><%= activity.name.capitalize %></h2>
             <p><%= activity.description.capitalize %></p>
+            <div class="btn btn-info"><%= link_to 'Reserve it', activity_path(activity), :class => "btn" %></div>  
+            
           </div>
         </div>
       </div>

@@ -42,14 +42,14 @@ tender = Tender.new(
   puts 'Finished'
 
 puts 'Guest'  
-guest_names = %w(Mitchell Claire Fiona Chris Gareth Frits)
+guest_names = %w(Mitchell Claire Fiona Chris Gareth Frits Toto)
 
 guests = guest_names.map do |guest_name|
 	User.create(email: "#{guest_name.downcase}@cas.com", name: guest_name, password: '123soleil', booking_id: 1, guest: true)
 end
 
 puts 'Crew'
-crew_names = %w(Juan Christian Emma Sebastian)
+crew_names = %w(Juan Christian Emma Sebastian Titi)
 
 crews = crew_names.map do |crew_name|
 	User.create(email: "#{crew_name.downcase}@cas.com", name: crew_name, password: '123soleil', booking_id: 1, crew: true)
