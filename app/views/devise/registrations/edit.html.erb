@@ -6,27 +6,35 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true %>
+        <div class="email-edit">
+          <%= f.input :email, required: true, autofocus: true %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+        </div>
 
-        <%= f.input :password,
-                    required: false,
-                    input_html: { autocomplete: "new-password" },
-                    placeholder: "Enter your new password" %>
-        <%= f.input :password_confirmation,
-                    required: false,
-                    input_html: { autocomplete: "new-password" },
-                    placeholder: "Confirm your new password" %>
-        <%= f.input :current_password,
-                    required: true,
-                    input_html: { autocomplete: "current-password" },
-                    placeholder: "••••••••" %>
+        <div class="pass-edit-edit">
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "new-password" },
+                      placeholder: "Enter your new password" %>
+        </div>
+        <div class="pass-edit-edit">
+          <%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" },
+                      placeholder: "Confirm your new password" %>
+        </div>
+        <div class="pass-edit-edit">
+          <%= f.input :current_password,
+                      required: true,
+                      input_html: { autocomplete: "current-password" },
+                      placeholder: "••••••••" %>
+        </div>
       </div>
       <div class="edit-actions">
-      <button type="button" class="btn-one">
+      <button type="button">
       <%= f.button :submit, "UPDATE" %>
       </button>
     <% end %>
