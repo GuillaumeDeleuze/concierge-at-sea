@@ -74,6 +74,24 @@
   }
 }
 
+.btn-activity-index {
+  background-color: #EAEDED;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.03em;
+    line-height: 0.7;
+    font-family: Heebo;
+    font-size: 15px;
+    padding: 1px;
+    display: flex;
+    width: 25%;
+    margin: auto;
+    margin-bottom: 13px !important;
+}
+
 label.start-activity {
   padding: 0px 4px;
   color: #EAEDED !important;
@@ -103,14 +121,13 @@ label.start-activity {
 }
 
 .card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+  font-size: 14px;
+  opacity: .8;
+  margin: 2px 1px 18px 0px
 }
 
-
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 17px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -131,7 +148,6 @@ label.start-activity {
   img {
       width:100%;
   }
-
 }
 
 .banner {

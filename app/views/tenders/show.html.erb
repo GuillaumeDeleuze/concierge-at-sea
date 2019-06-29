@@ -15,7 +15,7 @@
             <% elsif @tender.pending? %>
             <div class="tender-input">
                 <p class="tender-text">
-                    <%= "The crew members will check if it is possible to call the tender for #{@tender.time.strftime('%m/%d at %I:%M%p')}" %>
+                    <%= "Your crew will check if it is possible to call the tender for #{@tender.time.strftime('%m/%d at %I:%M%p')}" %>
                 </p>
             </div>
                 <h1 class="tender-text">Do you wish to modify your tender reservation?</p>
@@ -27,7 +27,7 @@
 
             <% else %>
             <div class="tender-text-box">
-                <h1 class="tender-text">Call for a Tender now</h1>
+                <h1 class="tender-text">CALL FOR A TENDER NOW</h1>
                 <%= simple_form_for @tender do |f| %>
                     <%= f.hidden_field :called, :value => 'pending' %>
                     <%= f.hidden_field :time, as: :datetime, :value => DateTime.current %>
@@ -35,7 +35,7 @@
                 <% end %> 
             </div>  
                 <div class="tender-text-box">
-                <h1 class="tender-text">Order a Tender for</h1>
+                <h1 class="tender-text">ORDER A TENDER FOR</h1>
                 <%= simple_form_for @tender do |f| %>
                     <%= f.hidden_field :called, :value => 'pending' %>
                     <%= f.input :time, as: :datetime, min: Date.today, discard_year: true, :label => false, :minute_step => 5 %>
