@@ -5,8 +5,8 @@ class BeveragesController < ApplicationController
         @beverages = Beverage.where(booking: current_user.booking)       
     end
 
-    def hot_drink_index
-        @hot_drinks = Beverage.where(booking: current_user.booking).where(:beverage_type => 0)
+    def tea_index
+        @teas = Beverage.where(booking: current_user.booking).where(:beverage_type => 0)
     end
     
     def alcohol_index
@@ -17,8 +17,16 @@ class BeveragesController < ApplicationController
         @soft_drinks = Beverage.where(booking: current_user.booking).where(:beverage_type => 2)
     end
 
+    def coffee_index
+        @coffees = Beverage.where(booking: current_user.booking).where(:beverage_type => 3)
+    end
+
+    def cocktail_index
+        @cocktails = Beverage.where(booking: current_user.booking).where(:beverage_type => 4)
+    end
+
     def all_day_dining_index
-        @all_day_dinings = Beverage.where(booking: current_user.booking).where(:beverage_type => 3)
+        @all_day_dinings = Beverage.where(booking: current_user.booking).where(:beverage_type => 5)
     end
 
     def edit

@@ -2,7 +2,7 @@
 <div class="banner_wrapper_dashboard">
   <div class="container-dashboard">
     <div class="drink-title-frame"> 
-        <h1 class="beverage-title">Alcohol</h1>
+        <h1 class="beverage-title">ALCOHOL</h1>
         <h2 class="drink-sub">Click on an item for more details</h2>
     </div>
     <% @alcohols.order("name asc").each do |alcohol| %>
@@ -19,9 +19,7 @@
               <%= f.button :submit, "-", class: "btn-drink" %>
           <% end %> 
         
-         
         <p class="number-beverage"><%= alcohol.quantity %></p>
- 
 
         <%= simple_form_for alcohol do |f| %>
             <%= f.hidden_field :quantity, :value => "#{alcohol.quantity + 1}"  %>
