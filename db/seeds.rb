@@ -65,7 +65,6 @@ teas = ["Earl Grey", "English Breakfast", "Fruit", "Herbal", "Fresh Mint", "Mint
 	Beverage.create( beverage_type: 0, name: "Earl Gray", description: "Fruity black tea", booking_id: 1)
 	Beverage.create( beverage_type: 0, name: "Green", description: "Full of your daily dose of antioxidants", booking_id: 1)
 	Beverage.create( beverage_type: 0, name: "Fresh lemon and honey", description: "Sweet yet zingy to soothe a sore throat", booking_id: 1)
-end
 
 alcohols = ["Vodka", "Whiskey", "Rum", "Negroni", "Cava", "Champagne", "Beer", "Red Wine", "White Wine", "Rosé", "Limoncello"]
 	Beverage.create( beverage_type: 1, name: "Vodka", description: "Shot or on the rocks", booking_id: 1)
@@ -78,7 +77,6 @@ alcohols = ["Vodka", "Whiskey", "Rum", "Negroni", "Cava", "Champagne", "Beer", "
 	Beverage.create( beverage_type: 1, name: "White Wine", description: "Light and dry for lunchtime enjoyment or meal pairing", booking_id: 1)
 	Beverage.create( beverage_type: 1, name: "Rosé", description: "Crisp and fruity for lunchtime enjoyment or early evening apéro", booking_id: 1)
 	Beverage.create( beverage_type: 1, name: "Limoncello", description: "Sweet and zingy. This tastes of the Mediterranean.", booking_id: 1)
-end
 
 soft_drinks = ["Coke", "Coke Zero", "Ice Tea Peach", "Ice Tea Lemon", "Sprite", "Fanta", "Sparkling Water", "Still Water", "Orange Juice", "Apple Juice", "Milk", "Tonic Water"]
 	Beverage.create( beverage_type: 2, name: "Orange Juice", description: "Freshly pressed and full of vitamin C", booking_id: 1)
@@ -93,7 +91,6 @@ soft_drinks = ["Coke", "Coke Zero", "Ice Tea Peach", "Ice Tea Lemon", "Sprite", 
 	Beverage.create( beverage_type: 2, name: "Ice Tea Lemon", description: "Served on the rocks with a slice of lemon", booking_id: 1)
 	Beverage.create( beverage_type: 2, name: "Ice Tea Peach", description: "Served on the rocks with a slice of lemon", booking_id: 1)
 	Beverage.create( beverage_type: 2, name: "Milk", description: "Semi, Whole, Skimmed, Lactose-free, Almond or Soya", booking_id: 1)
-end
 
 coffees = ["Cappuccino", "Espresso", "Double espresso", "Latte", "Americano", "Long black", "Macchiato", "Iced coffee"]
 	Beverage.create( beverage_type: 3, name: "Cappuccino", description: "Frothy milk over a fresh espresso shot", booking_id: 1)
@@ -104,7 +101,6 @@ coffees = ["Cappuccino", "Espresso", "Double espresso", "Latte", "Americano", "L
 	Beverage.create( beverage_type: 3, name: "Long black", description: "Slowly filtered long black", booking_id: 1)
 	Beverage.create( beverage_type: 3, name: "Macchiato", description: "Espresso shot 'stained' with a touch of frothy milk", booking_id: 1)
 	Beverage.create( beverage_type: 3, name: "Iced coffee", description: "Shaken shot of espresso with chilled milk served on the rocks", booking_id: 1)
-end
 
 cocktails = ["Martini", "Manhattan", "Bloody Mary", "Margarita", "Mojito", "Negroni", "Daiquiri", "Gin & Tonic"]
 	Beverage.create( beverage_type: 3, name: "Martini", description: "Gin Martini king of cocktails is a clear, classic and very strong mix of gin and vermouth. Traditionally shaken, not stirred and served chilled with an olive.", booking_id: 1)
@@ -115,7 +111,6 @@ cocktails = ["Martini", "Manhattan", "Bloody Mary", "Margarita", "Mojito", "Negr
 	Beverage.create( beverage_type: 3, name: "Negroni", description: "3 classic spirits blended over the rocks.", booking_id: 1)
 	Beverage.create( beverage_type: 3, name: "Daiquiri", description: "Rum and lime juice blend to make an island-version of the Margarita. Request a rosy twist with our strawberry daiquiri.  ", booking_id: 1)
 	Beverage.create( beverage_type: 3, name: "Gin & Tonic", description: "The Classic. Served with lime, basil, juniper berries on the rocks. ", booking_id: 1)
-end 
 
 puts 'Activities'
 activities = ["SEABOB", "JET SKI", "WATER SLIDE", "WAKEBOARD", "KAYAK", "PADDLE BOARD", "BANANA BOAT", "SNORKELLING", "FISHING", "WATER SKIS"]
