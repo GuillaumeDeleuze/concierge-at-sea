@@ -1,0 +1,31 @@
+<html class="tea">
+<div class="banner_wrapper_dashboard">
+  <div class="container-dashboard">
+    <div class="drink-title-frame">
+        <h1 class="beverage-title">TEA</h1>
+        <h2 class="drink-sub">Click on an item for more details</h2>
+    </div>
+        <% @teas.order("name asc").each do |tea| %>
+            <div class="beverages">
+            <h1 class="drink-title"><%= tea.name %></h1>
+                <div class="showhide" style="display:none">
+                    <p class="drink-para"><%= tea.description %></p>
+                </div>
+            </div>
+
+            <div class="quantity-buttons">
+                <%= simple_form_for tea do |f| %>
+                    <%= f.hidden_field :quantity, :value => "#{tea.quantity == 0 ? tea.quantity = tea.quantity : tea.quantity - 1}"  %>
+                    <%= f.button :submit, "-", class: "btn-drink" %>
+                <% end %> 
+
+                <p class="number-beverage"><%= tea.quantity %></p>
+
+                <%= simple_form_for tea do |f| %>
+                    <%= f.hidden_field :quantity, :value => "#{tea.quantity + 1}"  %>
+                    <%= f.button :submit, "+", class: "btn-drink" %>
+                <% end %> 
+            </div>
+        <% end %>
+  </div>
+</div>

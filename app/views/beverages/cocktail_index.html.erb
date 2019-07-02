@@ -1,0 +1,31 @@
+<html class="cocktail">
+<div class="banner_wrapper_dashboard">
+  <div class="container-dashboard">
+    <div class="drink-title-frame"> 
+        <h1 class="beverage-title">COCKTAILS</h1>
+        <h2 class="drink-sub">Click on an item for more details</h2>
+    </div>
+    <% @cocktails.order("name asc").each do |cocktail| %>
+        <div class="beverages">
+        <h1 class="drink-title"><%= cocktail.name %></h1>
+            <div class="showhide" style="display:none">
+                <p class="drink-para"><%= cocktail.description %></p>
+            </div>
+        </div>
+
+        <div class="quantity-buttons">
+          <%= simple_form_for cocktail do |f| %>
+              <%= f.hidden_field :quantity, :value => "#{cocktail.quantity == 0 ? cocktail.quantity = cocktail.quantity : cocktail.quantity - 1}"  %>
+              <%= f.button :submit, "-", class: "btn-drink" %>
+          <% end %> 
+        
+        <p class="number-beverage"><%= cocktail.quantity %></p>
+ 
+        <%= simple_form_for cocktail do |f| %>
+            <%= f.hidden_field :quantity, :value => "#{cocktail.quantity + 1}"  %>
+            <%= f.button :submit, "+", class: "btn-drink" %>
+        <% end %> 
+        </div>
+    <% end %>
+  </div>
+</div>

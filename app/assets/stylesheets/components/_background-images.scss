@@ -1,6 +1,6 @@
 html.tender {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url(https://images.pexels.com/photos/2351439/pexels-photo-2351439.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center fixed;
+    url(https://images.pexels.com/photos/570987/pexels-photo-570987.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -47,20 +47,12 @@ html.order {
 }
 
 html.beverages {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url(https://images.pexels.com/photos/605408/pexels-photo-605408.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    min-height: 100%;
-    width: 100%;
-    height: auto;
+    background-color:  #EAEDED;
 }
 
 html.alldaydining {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url(https://images.pexels.com/photos/1475/food-vegetables-italian-restaurant.jpg?cs=srgb&dl=aperitif-aperitivo-bar-1475.jpg&fm=jpg) no-repeat center center fixed;
+    url(https://images.pexels.com/photos/1152276/pexels-photo-1152276.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260.jpg&fm=jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -72,7 +64,7 @@ html.alldaydining {
 
 html.alcohol {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url(https://images.pexels.com/photos/301692/pexels-photo-301692.jpeg?cs=srgb&dl=alcohol-background-bar-301692.jpg&fm=jpg) no-repeat center center fixed;
+    url(https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260.jpg&fm=jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -84,7 +76,7 @@ html.alcohol {
 
 html.softdrink {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url(https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?cs=srgb&dl=berries-beverage-blur-616840.jpg&fm=jpg) no-repeat center center fixed;
+    url(https://images.pexels.com/photos/1643324/pexels-photo-1643324.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260.jpg&fm=jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -94,9 +86,33 @@ html.softdrink {
     height: auto;
 }
 
-html.hotdrink {
+html.tea {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url(https://images.pexels.com/photos/1251175/pexels-photo-1251175.jpeg?cs=srgb&dl=aroma-art-beverage-1251175.jpg&fm=jpg) no-repeat center center fixed;
+    url(https://images.pexels.com/photos/39471/cup-tee-teacup-glass-cup-39471.jpeg?cs=srgb&dl=color-colorful-colourful-39471.jpg&fm=jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+}
+
+html.coffee {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url(https://images.pexels.com/photos/1418364/pexels-photo-1418364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260.jpg&fm=jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+}
+
+html.cocktail {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url(https://images.pexels.com/photos/613037/pexels-photo-613037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260.jpg&fm=jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   get '/agenda' => 'pages#agenda'
   get '/order' => 'pages#order'
   get '/map' => 'pages#map'
-  get '/beverages/hotdrink' => 'beverages#hot_drink_index'
+  get '/beverages/tea' => 'beverages#tea_index'
   get '/beverages/softdrink' => 'beverages#soft_drink_index'
   get '/beverages/alcohol' => 'beverages#alcohol_index'
+  get '/beverages/cocktail' => 'beverages#cocktail_index'
+  get '/beverages/coffee' => 'beverages#coffee_index'
   get '/beverages/alldaydining' => 'beverages#all_day_dining_index'
   
  # Ajouter routes CRUDS lors de la création yatch_charter 

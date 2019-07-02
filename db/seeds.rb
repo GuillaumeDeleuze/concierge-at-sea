@@ -103,14 +103,14 @@ coffees = ["Cappuccino", "Espresso", "Double espresso", "Latte", "Americano", "L
 	Beverage.create( beverage_type: 3, name: "Iced coffee", description: "Shaken shot of espresso with chilled milk served on the rocks", booking_id: 1)
 
 cocktails = ["Martini", "Manhattan", "Bloody Mary", "Margarita", "Mojito", "Negroni", "Daiquiri", "Gin & Tonic"]
-	Beverage.create( beverage_type: 3, name: "Martini", description: "Gin Martini king of cocktails is a clear, classic and very strong mix of gin and vermouth. Traditionally shaken, not stirred and served chilled with an olive.", booking_id: 1)
-	Beverage.create( beverage_type: 3, name: "Manhattan", description: "Similar to our Martini, but with a touch of sweetness, the Manhattan embraces a touch of bourbon and is served chilled.", booking_id: 1)
-	Beverage.create( beverage_type: 3, name: "Bloody Mary", description: "Our Bloody Mary may be made for you at any time of the day with a garnish of celery to swirl vodka in to our freshly pressed tomato juice.", booking_id: 1)
-	Beverage.create( beverage_type: 3, name: "Margarita", description: "A sweet tequila-based sensation of lime and crunchy sugar coating around the edges.", booking_id: 1)
-	Beverage.create( beverage_type: 3, name: "Mojito", description: "A minty classic of white rum and lime served on the rocks.", booking_id: 1)
-	Beverage.create( beverage_type: 3, name: "Negroni", description: "3 classic spirits blended over the rocks.", booking_id: 1)
-	Beverage.create( beverage_type: 3, name: "Daiquiri", description: "Rum and lime juice blend to make an island-version of the Margarita. Request a rosy twist with our strawberry daiquiri.  ", booking_id: 1)
-	Beverage.create( beverage_type: 3, name: "Gin & Tonic", description: "The Classic. Served with lime, basil, juniper berries on the rocks. ", booking_id: 1)
+	Beverage.create( beverage_type: 4, name: "Martini", description: "Gin Martini king of cocktails is a clear, classic and very strong mix of gin and vermouth. Traditionally shaken, not stirred and served chilled with an olive.", booking_id: 1)
+	Beverage.create( beverage_type: 4, name: "Manhattan", description: "Similar to our Martini, but with a touch of sweetness, the Manhattan embraces a touch of bourbon and is served chilled.", booking_id: 1)
+	Beverage.create( beverage_type: 4, name: "Bloody Mary", description: "Our Bloody Mary may be made for you at any time of the day with a garnish of celery to swirl vodka in to our freshly pressed tomato juice.", booking_id: 1)
+	Beverage.create( beverage_type: 4, name: "Margarita", description: "A sweet tequila-based sensation of lime and crunchy sugar coating around the edges.", booking_id: 1)
+	Beverage.create( beverage_type: 4, name: "Mojito", description: "A minty classic of white rum and lime served on the rocks.", booking_id: 1)
+	Beverage.create( beverage_type: 4, name: "Negroni", description: "3 classic spirits blended over the rocks.", booking_id: 1)
+	Beverage.create( beverage_type: 4, name: "Daiquiri", description: "Rum and lime juice blend to make an island-version of the Margarita. Request a rosy twist with our strawberry daiquiri.", booking_id: 1)
+	Beverage.create( beverage_type: 4, name: "Gin & Tonic", description: "The Classic. Served with lime, basil, juniper berries on the rocks. ", booking_id: 1)
 
 puts 'Activities'
 activities = ["SEABOB", "JET SKI", "WATER SLIDE", "WAKEBOARD", "KAYAK", "PADDLE BOARD", "BANANA BOAT", "SNORKELLING", "FISHING", "WATER SKIS"]
