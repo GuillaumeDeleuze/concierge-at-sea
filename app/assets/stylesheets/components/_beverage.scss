@@ -1,4 +1,4 @@
-.beverage-title {
+.beverage-title-index {
     font-size: 30px;
     letter-spacing: 0.07em;
     font-weight: 400;
@@ -8,6 +8,18 @@
     margin-bottom: 25px;
     width: 100%;
     color: #01426a;
+}
+
+.beverage-title {
+    font-size: 30px;
+    letter-spacing: 0.07em;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    width: 100%;
+    color:  #EAEDED;
 }
 
 .quantity-number {
