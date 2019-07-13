@@ -1,3 +1,4 @@
+<%= render 'shared/navbarnavy' %>
 <% if current_user.crew? && @total_orders > 0 %>
   <%= link_to order_path, :action => 'go' do %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
