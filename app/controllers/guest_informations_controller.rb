@@ -18,6 +18,7 @@ class GuestInformationsController < ApplicationController
             redirect_to new_user_guest_preference_path(current_user)
         end
     end
+    
     def edit
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_095520) do
+ActiveRecord::Schema.define(version: 2019_07_16_082402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 2019_07_02_095520) do
     t.datetime "updated_at", null: false
     t.string "photo"
     t.index ["yatch_id"], name: "index_activities_on_yatch_id"
+  end
+
+  create_table "baskets", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "beverage_id"
+    t.string "localisation"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_at"
+    t.index ["beverage_id"], name: "index_baskets_on_beverage_id"
+    t.index ["user_id"], name: "index_baskets_on_user_id"
   end
 
   create_table "beverages", force: :cascade do |t|
@@ -130,6 +142,15 @@ ActiveRecord::Schema.define(version: 2019_07_02_095520) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "beverage_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beverage_id"], name: "index_orders_on_beverage_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "tenders", force: :cascade do |t|
     t.bigint "yatch_id"
     t.datetime "time"
@@ -169,6 +190,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_095520) do
   end
 
   add_foreign_key "activities", "yatches"
+  add_foreign_key "baskets", "beverages"
+  add_foreign_key "baskets", "users"
   add_foreign_key "beverages", "bookings"
   add_foreign_key "bookings", "yatches"
   add_foreign_key "chatrooms", "bookings"
@@ -178,6 +201,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_095520) do
   add_foreign_key "menus", "bookings"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "orders", "beverages"
+  add_foreign_key "orders", "users"
   add_foreign_key "tenders", "yatches"
   add_foreign_key "users", "bookings"
 end

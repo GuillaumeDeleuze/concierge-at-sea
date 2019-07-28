@@ -48,7 +48,9 @@ class GuestPreferencesController < ApplicationController
             :flower, 
             :newspaper, 
             :wine,
-            :newspaper_type 
+            :newspaper_type ,
+            :allergy,
+            :dislike
         )
     end
 end

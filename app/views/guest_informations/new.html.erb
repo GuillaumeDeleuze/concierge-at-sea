@@ -4,6 +4,7 @@
     <%= simple_form_for [@guest, @guest_information] do |f| %>
         <%= f.hidden_field :completed, :value => true %>
         <%= f.hidden_field :user_id, value: current_user.id %> 
+        <%= f.hidden_field :visible, :value => true %> 
         <%= f.input :birth_date, label: "Birthday", as: :date, start_year: Date.today.year - 90,
                               end_year: Date.today.year - 10, 
                               order: [:day, :month, :year],
@@ -19,9 +20,8 @@
         <%= f.input :flight_number %>
         <%= f.input :in_hotel, label: "Hotel stay?" %>
         <%= f.input :hotel_name, placeholder: "The Hilton" %>
-        <button type="button" class="btn-two">
-        <%= f.button :submit, "SAVE" %>
-        </button>
+
+        <%= f.button :submit, "SAVE", class: "btn-drink" %>
     <% end %>
     </div>
 </div>
