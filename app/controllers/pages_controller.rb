@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :broker_sign_in_page, :broker_home_page, :broker_booking_page]
 
   def home
   end
@@ -64,4 +64,16 @@ class PagesController < ApplicationController
     @guest_information = GuestInformation.where(user: current_user)
     @guest_preference = GuestPreference.where(user: current_user)
   end
+
+
+  
+  def broker_home_page
+  end 
+
+  def broker_booking_page
+  end
+
+  def broker_sign_in_page
+  end
+
 end

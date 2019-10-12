@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     end
   end
   
+  get '/broker/home' => 'pages#broker_home_page'
+  get '/broker/bookings' => 'pages#broker_booking_page'
+  get '/broker/signin' => 'pages#broker_sign_in_page'
   get '/dashboard' => 'pages#dashboard'
   get '/profile' => 'pages#profile'
   get '/agenda' => 'pages#agenda'
