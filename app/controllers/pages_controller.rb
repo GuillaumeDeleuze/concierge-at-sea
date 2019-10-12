@@ -66,8 +66,15 @@ class PagesController < ApplicationController
   end
 
 
-  
+  # Créer dans schema DB un broker_state
+  # has many users - yatches - bookings
+  # carac par name 
+
+
   def broker_home_page
+    @yatchs = Yatch.all
+    @bookings = Booking.all       
+
   end 
 
   def broker_booking_page
