@@ -65,12 +65,6 @@ class PagesController < ApplicationController
     @guest_preference = GuestPreference.where(user: current_user)
   end
 
-
-  # Créer dans schema DB un broker_state
-  # has many users - yatches - bookings
-  # carac par name 
-
-
   def broker_home_page
     @yatchs = Yatch.all
     @bookings = Booking.all       

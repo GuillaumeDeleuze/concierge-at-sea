@@ -4,4 +4,5 @@ class Yatch < ApplicationRecord
     has_many :bookings
     has_one :tender
     has_many :activities
+    belongs_to :broker
 end
